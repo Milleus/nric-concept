@@ -24,7 +24,7 @@ const TextInput: FC<Props> = ({
       value={value}
       type={type}
       placeholder={placeholder}
-      className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline border-blue-300"
+      className="appearance-none rounded w-full p-3 text-black leading-tight border border-gray-400 placeholder-gray-400 focus:outline-none focus:border-blue-900"
       onChange={onChange}
     />
   );
