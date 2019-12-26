@@ -1,5 +1,63 @@
 @tailwind base;
 
+* {
+  font-family: "Open Sans", sans-serif;
+}
+
+h1 {
+  @apply text-3xl;
+  @apply font-semibold;
+}
+
+h2 {
+  @apply text-2xl;
+  @apply font-semibold;
+  @apply text-blue-900;
+}
+
+h3 {
+  @apply text-xl;
+  @apply font-semibold;
+}
+
+h4 {
+  @apply text-lg;
+  @apply font-normal;
+}
+
+/* icons */
+.far {
+  font-family: "Font Awesome 5 Pro";
+  @apply font-normal;
+}
+
+.fa,
+.fas {
+  font-family: "Font Awesome 5 Pro";
+  @apply font-black;
+}
+
+.fab {
+  font-family: "Font Awesome 5 Brands";
+}
+
+/* tooltip */
+.tooltipContent span {
+  @apply z-30;
+}
+
+.tooltipContent > span:first-child {
+  @apply max-w-xs;
+  @apply bg-blue-900;
+  @apply text-white;
+  @apply rounded;
+  @apply shadow;
+}
+
+.tooltipContent > span:last-child {
+  @apply text-blue-900;
+}
+
 @tailwind components;
 
 @tailwind utilities;

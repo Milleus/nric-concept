@@ -599,6 +599,66 @@ video {
   height: auto;
 }
 
+* {
+  font-family: "Open Sans", sans-serif;
+}
+
+h1 {
+  font-size: 1.875rem;
+  font-weight: 600;
+}
+
+h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #2a4365;
+}
+
+h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+h4 {
+  font-size: 1.125rem;
+  font-weight: 400;
+}
+
+/* icons */
+
+.far {
+  font-family: "Font Awesome 5 Pro";
+  font-weight: 400;
+}
+
+.fa,
+.fas {
+  font-family: "Font Awesome 5 Pro";
+  font-weight: 900;
+}
+
+.fab {
+  font-family: "Font Awesome 5 Brands";
+}
+
+/* tooltip */
+
+.tooltipContent span {
+  z-index: 30;
+}
+
+.tooltipContent > span:first-child {
+  max-width: 20rem;
+  background-color: #2a4365;
+  color: #fff;
+  border-radius: 0.25rem;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+}
+
+.tooltipContent > span:last-child {
+  color: #2a4365;
+}
+
 .container {
   width: 100%;
 }
