@@ -7,7 +7,6 @@ interface Props {
 }
 
 export const Tooltip: FC<Props> = ({ children, iconClassName }) => {
-  console.log(children, iconClassName);
   return (
     <ReactTooltipLite
       className="flex items-center justify-center ml-1 h-6 w-6"
