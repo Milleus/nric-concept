@@ -1,6 +1,20 @@
 import React, { FC, useState, ChangeEvent } from "react";
 
 import ReRegFormCardName from "../../components/ReRegFormCardName";
+import ReRegFormCardOther from "../../components/ReRegFormCardOther";
+
+export enum Gender {
+  UNKNOWN = "Unknown",
+  MALE = "Male",
+  FEMALE = "Female"
+}
+
+export enum Race {
+  UNKNOWN = "Unknown",
+  CHINESE = "Chinese",
+  MALAY = "Malay",
+  INDIAN = "Indian"
+}
 
 export interface FormValues {
   nricNumber: string;
@@ -11,18 +25,30 @@ export interface FormValues {
   ethnicName: string;
   hypyName: string;
   marriedName: string;
+  gender: Gender;
+  race: Race;
+  religion: string;
   // contactNumber1: string;
   // contactNumber2: string;
   // country: string;
   // dateOfBirth: string;
   // emailAddress: string;
   // ethnicNameImageBase64: string;
-  // gender: Gender;
-  // race: Race;
-  // religion: string;
   // selectedMaritalStatus: string;
   // language: string;
 }
+
+const religionOptions = [
+  { label: "Buddism", value: "B" },
+  { label: "Christianity", value: "C" },
+  { label: "No Religion", value: "N" },
+  { label: "Hinduism", value: "H" },
+  { label: "Islam", value: "I" },
+  { label: "Others", value: "O" },
+  { label: "Sikhism", value: "S" },
+  { label: "Taoism", value: "T" },
+  { label: "Unknown", value: "U" }
+];
 
 const ReRegFormPage: FC<{}> = () => {
   const [formValues, setFormValues] = useState<FormValues>({
@@ -33,7 +59,10 @@ const ReRegFormPage: FC<{}> = () => {
     aliasHypyName: "SENG",
     ethnicName: "",
     hypyName: "",
-    marriedName: ""
+    marriedName: "",
+    gender: Gender.FEMALE,
+    race: Race.CHINESE,
+    religion: ""
   });
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -44,6 +73,11 @@ const ReRegFormPage: FC<{}> = () => {
   return (
     <div className="container mx-auto">
       <ReRegFormCardName formValues={formValues} onChange={handleChange} />
+      <ReRegFormCardOther
+        formValues={formValues}
+        onChange={handleChange}
+        religionOptions={religionOptions}
+      />
       {/* <form action="" className=" bg-white shadow-md rounded px-8 py-8 pt-8">
           <div className="px-4 pb-4">
             <Label htmlFor="email">EMAIL ADDRESS</Label>
