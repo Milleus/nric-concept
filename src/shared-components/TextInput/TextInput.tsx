@@ -1,4 +1,12 @@
-import React, { FC, ChangeEventHandler } from "react";
+import classnames from "classnames";
+import React, {
+  FC,
+  ChangeEventHandler,
+  FocusEventHandler,
+  MouseEventHandler
+} from "react";
+
+import ErrorMessage from "../ErrorMessage";
 
 interface Props {
   id: string;
@@ -6,7 +14,11 @@ interface Props {
   value: string;
   type?: string;
   placeholder?: string;
+  error?: string;
   onChange?: ChangeEventHandler;
+  onFocus?: FocusEventHandler;
+  onBlur?: FocusEventHandler;
+  onClearClick?: MouseEventHandler;
 }
 
 const TextInput: FC<Props> = ({
@@ -15,18 +27,45 @@ const TextInput: FC<Props> = ({
   value,
   placeholder,
   type = "text",
-  onChange
+  error,
+  onChange,
+  onFocus,
+  onBlur,
+  onClearClick
 }) => {
+  const inputConditionalClass = {
+    "border-red-600": error,
+    "pr-8": onClearClick
+  };
+
   return (
-    <input
-      id={id}
-      name={name}
-      value={value}
-      type={type}
-      placeholder={placeholder}
-      className="appearance-none rounded w-full p-3 uppercase border border-gray-400 placeholder-gray-400 focus:outline-none focus:border-blue-900"
-      onChange={onChange}
-    />
+    <>
+      <div className="relative flex items-center">
+        <input
+          id={id}
+          name={name}
+          value={value}
+          type={type}
+          placeholder={placeholder}
+          className={classnames(
+            `w-full p-3 appearance-none bg-white rounded border border-gray-400
+            uppercase placeholder-gray-400 placeholder:normal-case
+            focus:outline-none focus:border-blue-900`,
+            inputConditionalClass
+          )}
+          onChange={onChange}
+          onFocus={onFocus}
+          onBlur={onBlur}
+        />
+        {onClearClick && value.length > 0 && (
+          <i
+            className="fas fa-times-circle text-gray-600 absolute right-0 mr-3"
+            onClick={onClearClick}
+          />
+        )}
+      </div>
+      <ErrorMessage>{error}</ErrorMessage>
+    </>
   );
 };
 
