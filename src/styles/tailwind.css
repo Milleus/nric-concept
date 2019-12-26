@@ -606,22 +606,26 @@ video {
 h1 {
   font-size: 1.875rem;
   font-weight: 600;
+  line-height: 1.25;
 }
 
 h2 {
   font-size: 1.5rem;
   font-weight: 600;
+  line-height: 1.25;
   color: #2a4365;
 }
 
 h3 {
   font-size: 1.25rem;
   font-weight: 600;
+  line-height: 1.25;
 }
 
 h4 {
   font-size: 1.125rem;
   font-weight: 400;
+  line-height: 1.25;
 }
 
 /* icons */
@@ -643,9 +647,9 @@ h4 {
 
 /* tooltip */
 
-.tooltipContent span {
-  z-index: 30;
-}
+/* .tooltipContent span {
+  @apply z-30;
+} */
 
 .tooltipContent > span:first-child {
   max-width: 20rem;
@@ -656,7 +660,7 @@ h4 {
 }
 
 .tooltipContent > span:last-child {
-  color: #2a4365;
+  border-color: #2a4365;
 }
 
 .container {

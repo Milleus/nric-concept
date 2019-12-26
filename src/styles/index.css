@@ -7,22 +7,26 @@
 h1 {
   @apply text-3xl;
   @apply font-semibold;
+  @apply leading-tight;
 }
 
 h2 {
   @apply text-2xl;
   @apply font-semibold;
+  @apply leading-tight;
   @apply text-blue-900;
 }
 
 h3 {
   @apply text-xl;
   @apply font-semibold;
+  @apply leading-tight;
 }
 
 h4 {
   @apply text-lg;
   @apply font-normal;
+  @apply leading-tight;
 }
 
 /* icons */
@@ -42,9 +46,9 @@ h4 {
 }
 
 /* tooltip */
-.tooltipContent span {
+/* .tooltipContent span {
   @apply z-30;
-}
+} */
 
 .tooltipContent > span:first-child {
   @apply max-w-xs;
@@ -55,7 +59,7 @@ h4 {
 }
 
 .tooltipContent > span:last-child {
-  @apply text-blue-900;
+  @apply border-blue-900;
 }
 
 @tailwind components;
