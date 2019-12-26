@@ -603,6 +603,14 @@ video {
   font-family: "Open Sans", sans-serif;
 }
 
+body {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 h1 {
   font-size: 1.875rem;
   font-weight: 600;
@@ -628,6 +636,18 @@ h4 {
   line-height: 1.25;
 }
 
+a {
+  color: #63b3ed;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+a:active,
+a:hover,
+a:focus {
+  text-decoration: underline;
+}
+
 /* icons */
 
 .far {
@@ -647,12 +667,8 @@ h4 {
 
 /* tooltip */
 
-/* .tooltipContent span {
-  @apply z-30;
-} */
-
 .tooltipContent > span:first-child {
-  max-width: 20rem;
+  max-width: 20rem !important;
   background-color: #2a4365;
   color: #fff;
   border-radius: 0.25rem;

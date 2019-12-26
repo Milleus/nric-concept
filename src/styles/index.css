@@ -4,6 +4,13 @@
   font-family: "Open Sans", sans-serif;
 }
 
+body {
+  @apply text-base;
+  @apply font-normal;
+  @apply leading-normal;
+  @apply antialiased;
+}
+
 h1 {
   @apply text-3xl;
   @apply font-semibold;
@@ -29,6 +36,18 @@ h4 {
   @apply leading-tight;
 }
 
+a {
+  @apply text-blue-400;
+  @apply font-semibold;
+  @apply no-underline;
+}
+
+a:active,
+a:hover,
+a:focus {
+  @apply underline;
+}
+
 /* icons */
 .far {
   font-family: "Font Awesome 5 Pro";
@@ -46,12 +65,8 @@ h4 {
 }
 
 /* tooltip */
-/* .tooltipContent span {
-  @apply z-30;
-} */
-
 .tooltipContent > span:first-child {
-  @apply max-w-xs;
+  max-width: 20rem !important;
   @apply bg-blue-900;
   @apply text-white;
   @apply rounded;
