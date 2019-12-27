@@ -2,9 +2,9 @@ import React, { FC } from "react";
 
 import { GOV_SG, ICA_ESERVICE_DASHBOARD } from "../../routes/index";
 import { ReactComponent as IcaLogo } from "./images/ica-logo.svg";
-import Masthead from "../Masthead";
-import GridContainer from "../GridContainer";
-import Navbar from "../Navbar";
+import Masthead from "../../shared-components/Masthead";
+import GridContainer from "../../shared-components/GridContainer";
+import Navbar from "../../shared-components/Navbar";
 
 const PageHeader: FC<{}> = () => {
   return (

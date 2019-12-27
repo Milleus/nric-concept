@@ -1,8 +1,8 @@
 import React, { FC, useState, ChangeEvent } from "react";
 
 import GridContainer from "../../shared-components/GridContainer";
-import PageHeader from "../../shared-components/PageHeader";
-import PageTitle from "../../shared-components/PageTitle";
+import PageHeader from "../../components/PageHeader";
+import PageTitle from "../../components/PageTitle";
 import ReRegFormCardContact from "../../components/ReRegFormCardContact";
 import ReRegFormCardName from "../../components/ReRegFormCardName";
 import ReRegFormCardOther from "../../components/ReRegFormCardOther";
