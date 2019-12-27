@@ -246,7 +246,8 @@ module.exports = {
         '"Liberation Mono"',
         '"Courier New"',
         "monospace"
-      ]
+      ],
+      lato: ["Lato"]
     },
     fontSize: {
       xs: "0.75rem",
