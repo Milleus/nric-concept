@@ -11,7 +11,7 @@ const Card: FC<Props> = ({ children, title, description, id }) => {
   return (
     <div
       id={id}
-      className="w-full rounded overflow-hidden bg-white shadow my-8"
+      className="w-full rounded overflow-hidden bg-white shadow mb-8"
     >
       <div className="border-b border-gray-400 p-6">
         <h2>{title}</h2>

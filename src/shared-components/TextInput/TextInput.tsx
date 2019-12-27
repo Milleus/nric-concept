@@ -12,9 +12,11 @@ interface Props {
   id: string;
   name: string;
   value: string;
-  type?: string;
   placeholder?: string;
   error?: string;
+  type?: string;
+  maxLength?: number;
+  autoComplete?: string;
   onChange?: ChangeEventHandler;
   onFocus?: FocusEventHandler;
   onBlur?: FocusEventHandler;
@@ -26,8 +28,10 @@ const TextInput: FC<Props> = ({
   name,
   value,
   placeholder,
-  type = "text",
   error,
+  type = "text",
+  maxLength,
+  autoComplete,
   onChange,
   onFocus,
   onBlur,
@@ -45,8 +49,10 @@ const TextInput: FC<Props> = ({
           id={id}
           name={name}
           value={value}
-          type={type}
           placeholder={placeholder}
+          type={type}
+          maxLength={maxLength}
+          autoComplete={autoComplete}
           className={classnames(
             `w-full p-3 appearance-none bg-white rounded border border-gray-400
             uppercase placeholder-gray-400 placeholder:normal-case
