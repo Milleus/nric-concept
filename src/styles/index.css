@@ -64,19 +64,6 @@ a:focus {
   font-family: "Font Awesome 5 Brands";
 }
 
-/* tooltip */
-.tooltipContent > span:first-child {
-  max-width: 20rem !important;
-  @apply bg-blue-900;
-  @apply text-white;
-  @apply rounded;
-  @apply shadow;
-}
-
-.tooltipContent > span:last-child {
-  @apply border-blue-900;
-}
-
 @tailwind components;
 
 @tailwind utilities;

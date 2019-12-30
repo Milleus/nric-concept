@@ -1,6 +1,8 @@
 import { default as ReactTooltipLite } from "react-tooltip-lite";
 import React, { FC, ReactNode } from "react";
 
+import styles from "./style.module.scss";
+
 interface Props {
   children: ReactNode;
   iconClassName: string;
@@ -13,7 +15,7 @@ export const Tooltip: FC<Props> = ({ children, iconClassName }) => {
       content={children}
       direction="right-start"
       hoverDelay={0}
-      tipContentClassName="tooltipContent"
+      tipContentClassName={styles.tooltipContent}
       tipContentHover={true}
     >
       <i className={iconClassName} />
