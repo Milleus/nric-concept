@@ -4,13 +4,14 @@ import { DUMMY_LINK } from "../../routes/index";
 import GridContainer from "../../shared-components/GridContainer";
 import Navbar from "../../shared-components/Navbar";
 import Masthead from "../../shared-components/Masthead";
+import { ReactComponent as IcaLogo } from "./images/ica-logo.svg";
 
 const PageHeader: FC<{}> = () => {
   return (
     <>
       <Masthead title="Re-registration of NRIC concept" link={DUMMY_LINK} />
       <GridContainer>
-        <img src="https://via.placeholder.com/150x100" alt="Logo"></img>
+        <IcaLogo />
       </GridContainer>
       <Navbar>
         <a
