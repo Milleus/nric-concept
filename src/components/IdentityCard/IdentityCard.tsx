@@ -1,5 +1,5 @@
 import classnames from "classnames/bind";
-import React, { FC } from "react";
+import React, { FC, useEffect, useRef } from "react";
 
 import { FormValues, ActiveField } from "../../pages/ReRegFormPage";
 import styles from "./style.module.scss";
@@ -12,6 +12,39 @@ interface Props {
 }
 
 const IdentityCard: FC<Props> = ({ formValues, activeField }) => {
+  const identifyCardRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const stickyOffet = 40;
+    let elementOffsetTop = 0;
+
+    const handleScroll = () => {
+      const { current } = identifyCardRef;
+
+      if (current) {
+        if (elementOffsetTop === 0) {
+          elementOffsetTop = current.offsetTop;
+        }
+
+        const currentScroll = window.pageYOffset;
+
+        if (currentScroll + stickyOffet > elementOffsetTop) {
+          current.classList.add("sticky");
+          current.style.top = `${stickyOffet}px`;
+        } else {
+          current.classList.remove("sticky");
+        }
+      }
+    };
+
+    handleScroll();
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   const {
     nricNumber,
     principalName,
@@ -40,7 +73,8 @@ const IdentityCard: FC<Props> = ({ formValues, activeField }) => {
 
   return (
     <div
-      className={`bg-pink-200 rounded-lg overflow-hidden relative ${styles.nric}`}
+      ref={identifyCardRef}
+      className={`bg-pink-200 rounded-lg overflow-hidden ${styles.nric}`}
     >
       <div id="helper" className={focusBoxClass}></div>
       <div className="bg-gray-400 p-2 mt-4 text-lg">
