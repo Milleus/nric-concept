@@ -36,8 +36,8 @@ const ReRegFormCardName: FC<Props> = ({
       title="Full Name"
       description="All names shown here will be printed on your IC."
     >
-      <div className="flex -mx-2">
-        <div className="w-full lg:w-1/2 xl:w-1/2 px-2 mb-6">
+      <div className="flex -mx-3">
+        <div className="w-full lg:w-1/2 xl:w-1/2 px-3 mb-6">
           <FormLabel htmlFor="principalName">Name</FormLabel>
           <TextInput
             id="principalName"
@@ -50,8 +50,8 @@ const ReRegFormCardName: FC<Props> = ({
         </div>
       </div>
 
-      <div className="flex -mx-2">
-        <div className="w-full lg:w-1/2 xl:w-1/2 px-2 mb-6">
+      <div className="flex -mx-3">
+        <div className="w-full lg:w-1/2 xl:w-1/2 px-3 mb-6">
           <FormLabel
             htmlFor="aliasName"
             isOptional={true}
@@ -71,16 +71,16 @@ const ReRegFormCardName: FC<Props> = ({
       </div>
 
       {aliasHypyName && (
-        <div className="flex -mx-2">
-          <div className="w-full lg:w-1/2 xl:w-1/2 px-2 mb-6">
+        <div className="flex -mx-3">
+          <div className="w-full lg:w-1/2 xl:w-1/2 px-3 mb-6">
             <FormLabel htmlFor="aliasHypyName">Alias in hanyu pinyin</FormLabel>
             <FormAttribute value={aliasHypyName} />
           </div>
         </div>
       )}
 
-      <div className="flex -mx-2">
-        <div className="w-full lg:w-1/2 xl:w-1/2 px-2 mb-6">
+      <div className="flex -mx-3">
+        <div className="w-full lg:w-1/2 xl:w-1/2 px-3 mb-6">
           <FormLabel
             htmlFor="ethnicName"
             isOptional={true}
@@ -100,8 +100,8 @@ const ReRegFormCardName: FC<Props> = ({
       </div>
 
       {race === Race.CHINESE && (
-        <div className="flex -mx-2">
-          <div className="w-full lg:w-1/2 xl:w-1/2 px-2 mb-6">
+        <div className="flex -mx-3">
+          <div className="w-full lg:w-1/2 xl:w-1/2 px-3 mb-6">
             <FormLabel htmlFor="hypyName">
               Ethnic name in hanyu pinyin
             </FormLabel>
@@ -118,8 +118,8 @@ const ReRegFormCardName: FC<Props> = ({
       )}
 
       {gender === Gender.FEMALE && (
-        <div className="flex -mx-2">
-          <div className="w-full lg:w-1/2 xl:w-1/2 px-2 mb-6">
+        <div className="flex -mx-3">
+          <div className="w-full lg:w-1/2 xl:w-1/2 px-3 mb-6">
             <FormLabel
               htmlFor="marriedName"
               isOptional={true}

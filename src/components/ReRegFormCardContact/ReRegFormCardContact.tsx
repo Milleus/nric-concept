@@ -18,8 +18,8 @@ const ReRegFormCardContact: FC<Props> = ({ formValues, onChange }) => {
       title="Contact Details"
       description="We'll contact you via the email and number here for any application matters."
     >
-      <div className="flex -mx-2">
-        <div className="w-full lg:w-1/2 xl:w-1/2 px-2 mb-6">
+      <div className="flex -mx-3">
+        <div className="w-full lg:w-1/2 xl:w-1/2 px-3 mb-6">
           <FormLabel htmlFor="emailAddress">Email</FormLabel>
           <TextInput
             id="emailAddress"
@@ -31,8 +31,8 @@ const ReRegFormCardContact: FC<Props> = ({ formValues, onChange }) => {
         </div>
       </div>
 
-      <div className="flex flex-wrap -mx-2">
-        <div className="w-full lg:w-1/2 xl:w-1/2 px-2 mb-6">
+      <div className="flex flex-wrap -mx-3">
+        <div className="w-full lg:w-1/2 xl:w-1/2 px-3 mb-6">
           <FormLabel htmlFor="contactNumber1">Mobile number</FormLabel>
           <TextInput
             id="contactNumber1"
@@ -43,7 +43,7 @@ const ReRegFormCardContact: FC<Props> = ({ formValues, onChange }) => {
           />
         </div>
 
-        <div className="w-full lg:w-1/2 xl:w-1/2 px-2 mb-6">
+        <div className="w-full lg:w-1/2 xl:w-1/2 px-3 mb-6">
           <FormLabel htmlFor="contactNumber2" isOptional={true}>
             Alternate contact number
           </FormLabel>
