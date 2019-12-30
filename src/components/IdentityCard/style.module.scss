@@ -11,13 +11,12 @@
   width: 100%;
   opacity: 0;
   pointer-events: none;
-  transition: opacity 1s ease-in-out, height 0.3s ease-in-out,
-    width 0.3s ease-in-out, transform 0.3s ease-in-out;
+  transition: all 0.35s cubic-bezier(0.71, 0.03, 0.56, 0.85);
 
   &.name {
     height: 5.5rem;
     width: 17.5rem;
     opacity: 1;
-    transform: translate(9rem, 4rem);
+    transform: translateX(9rem) translateY(4rem);
   }
 }
