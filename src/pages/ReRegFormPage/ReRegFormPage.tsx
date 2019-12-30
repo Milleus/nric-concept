@@ -30,6 +30,7 @@ export enum Country {
 
 export enum ActiveField {
   NONE = "NONE",
+  PHOTO = "PHOTO",
   NAME = "NAME",
   ADDRESS = "ADDRESS"
 }
@@ -101,7 +102,7 @@ const ReRegFormPage: FC<{}> = () => {
   const handleUploadChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { files } = event.target;
 
-    if (files) {
+    if (files && files[0]) {
       const file = files[0];
       const { name, type } = file;
 
@@ -121,6 +122,7 @@ const ReRegFormPage: FC<{}> = () => {
           ...formValues,
           photoBase64Image: fileReader.result as string
         });
+        setActiveField(ActiveField.PHOTO);
       };
     }
   };
@@ -135,9 +137,9 @@ const ReRegFormPage: FC<{}> = () => {
 
     switch (name) {
       case "principalName":
-      case "aliasName":
       case "ethnicName":
       case "marriedName":
+      case "aliasName":
         setActiveField(ActiveField.NAME);
         break;
       default:
@@ -162,10 +164,6 @@ const ReRegFormPage: FC<{}> = () => {
         />
 
         <div className="flex -mx-4">
-          <div className="hidden w-auto lg:block px-4">
-            <IdentityCard formValues={formValues} activeField={activeField} />
-          </div>
-
           <div className="w-full px-4">
             <ReRegFormCardPhoto
               formValues={formValues}
@@ -189,6 +187,10 @@ const ReRegFormPage: FC<{}> = () => {
               formValues={formValues}
               onChange={handleChange}
             />
+          </div>
+
+          <div className="hidden w-auto lg:block px-4">
+            <IdentityCard formValues={formValues} activeField={activeField} />
           </div>
         </div>
         {/* <form action="" className=" bg-white shadow-md rounded px-8 py-8 pt-8">

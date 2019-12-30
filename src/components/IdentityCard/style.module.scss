@@ -25,11 +25,19 @@
   opacity: 0;
   pointer-events: none;
   transition: all 0.35s cubic-bezier(0.71, 0.03, 0.56, 0.85);
+  z-index: 1;
+
+  &.photo {
+    height: 12.5rem;
+    width: 7rem;
+    opacity: 1;
+    transform: translateX(0.2rem) translateY(3.8rem);
+  }
 
   &.name {
     height: 5.5rem;
-    width: 17.5rem;
+    width: 19.25rem;
     opacity: 1;
-    transform: translateX(9rem) translateY(4rem);
+    transform: translateX(7rem) translateY(4rem);
   }
 }

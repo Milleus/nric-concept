@@ -70,59 +70,70 @@ const IdentityCard: FC<Props> = ({ formValues, activeField }) => {
 
   const focusBoxClass = cx({
     focusBox: true,
+    photo: activeField === ActiveField.PHOTO,
     name: activeField === ActiveField.NAME
   });
 
   return (
-    <div
-      ref={identifyCardRef}
-      className={`bg-pink-200 rounded-lg overflow-hidden ${styles.nric}`}
-    >
-      <div id="helper" className={focusBoxClass} />
-      <div className="bg-gray-400 p-2 mt-4 text-lg">
-        IDENTITY CARD NO. <span className="font-semibold">{nricNumber}</span>
-      </div>
-
-      <div className="flex p-2">
-        <div className="flex flex-col items-end w-1/4 mr-3">
-          <img
-            src={!!photoBase64Image ? photoBase64Image : photoUploadPreview}
-            alt="preview large"
-            className={`mb-2 ${styles.previewLarge}`}
-          />
-          <img
-            src={!!photoBase64Image ? photoBase64Image : photoUploadPreview}
-            alt="preview small"
-            className={styles.previewSmall}
-          />
+    <div ref={identifyCardRef}>
+      <h2 className="mb-2">Preview</h2>
+      <div className={`bg-pink-200 rounded-lg overflow-hidden ${styles.nric}`}>
+        <div id="helper" className={focusBoxClass} />
+        <div className="bg-gray-400 p-2 mt-4 text-lg">
+          IDENTITY CARD NO. <span className="font-semibold">{nricNumber}</span>
         </div>
 
-        <div className="w-3/4">
-          <label htmlFor="principalName" className="cursor-pointer">
-            <p className="text-gray-800 text-xs font-semibold">Name</p>
-            <p className="font-semibold leading-tight">
-              {principalName}
-              {aliasName && <span>@{aliasName}</span>}
-            </p>
-            {marriedName && (
-              <p className="font-semibold leading-tight">{marriedName}</p>
-            )}
-            {ethnicName && (
-              <p className="font-semibold leading-tight">{ethnicName}</p>
-            )}
-          </label>
-
-          {renderMinorLabelField("Race", race)}
-
-          <div className="flex">
-            <div className="w-1/2 mr-3">
-              {renderMinorLabelField("Date of birth", dateOfBirth)}
-            </div>
-
-            <div className="w-1/2">{renderMinorLabelField("Sex", gender)}</div>
+        <div className="flex p-2">
+          <div className="w-1/4 mr-3">
+            <label htmlFor="uploadPhoto" className="cursor-pointer">
+              <div className="flex flex-col items-end">
+                <img
+                  src={
+                    !!photoBase64Image ? photoBase64Image : photoUploadPreview
+                  }
+                  alt="preview large"
+                  className={`mb-2 ${styles.previewLarge}`}
+                />
+                <img
+                  src={
+                    !!photoBase64Image ? photoBase64Image : photoUploadPreview
+                  }
+                  alt="preview small"
+                  className={styles.previewSmall}
+                />
+              </div>
+            </label>
           </div>
 
-          {renderMinorLabelField("Country of birth", countryOfBirth)}
+          <div className="w-3/4">
+            <label htmlFor="principalName" className="cursor-pointer">
+              <p className="text-gray-800 text-xs font-semibold">Name</p>
+              <p className="font-semibold leading-tight">
+                {principalName}
+                {aliasName && <span>@{aliasName}</span>}
+              </p>
+              {marriedName && (
+                <p className="font-semibold leading-tight">{marriedName}</p>
+              )}
+              {ethnicName && (
+                <p className="font-semibold leading-tight">{ethnicName}</p>
+              )}
+            </label>
+
+            {renderMinorLabelField("Race", race)}
+
+            <div className="flex">
+              <div className="w-1/2 mr-3">
+                {renderMinorLabelField("Date of birth", dateOfBirth)}
+              </div>
+
+              <div className="w-1/2">
+                {renderMinorLabelField("Sex", gender)}
+              </div>
+            </div>
+
+            {renderMinorLabelField("Country of birth", countryOfBirth)}
+          </div>
         </div>
       </div>
     </div>

@@ -8,7 +8,6 @@ export enum ButtonAppearance {
 }
 
 interface Props {
-  id: string;
   appearance: ButtonAppearance;
   children: ReactNode;
   onClick?: MouseEventHandler;
@@ -16,7 +15,6 @@ interface Props {
 }
 
 const Button: FC<Props> = ({
-  id,
   appearance,
   children,
   type = "submit",
@@ -33,7 +31,6 @@ const Button: FC<Props> = ({
 
   return (
     <button
-      id={id}
       type={type}
       className={classnames(
         `font-semibold py-2 px-4 border-2 rounded focus:outline-none hover:shadow-md`,

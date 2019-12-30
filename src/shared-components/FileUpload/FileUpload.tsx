@@ -23,15 +23,12 @@ const FileUpload: FC<Props> = ({ id, children, onChange }) => {
     <>
       <input
         ref={inputRef}
+        id={id}
         type="file"
         className="hidden"
         onChange={onChange}
       />
-      <Button
-        id={id}
-        appearance={ButtonAppearance.TERTIARY}
-        onClick={handleClick}
-      >
+      <Button appearance={ButtonAppearance.TERTIARY} onClick={handleClick}>
         {children}
       </Button>
     </>

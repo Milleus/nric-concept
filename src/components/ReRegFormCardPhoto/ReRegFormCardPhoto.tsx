@@ -82,7 +82,7 @@ const ReRegFormCardPhoto: FC<Props> = ({ formValues, onUploadChange }) => {
             .jpeg, .jpg, .png
           </p>
           <FileUpload id="uploadPhoto" onChange={onUploadChange}>
-            Upload photo
+            {!!photoBase64Image ? "Change photo" : "Upload photo"}
           </FileUpload>
         </div>
 
