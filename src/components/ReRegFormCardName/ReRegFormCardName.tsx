@@ -1,11 +1,13 @@
 import React, { FC, ChangeEventHandler, FocusEventHandler } from "react";
 
-import Card from "../../shared-components/Card";
-import FormLabel from "../../shared-components/FormLabel";
-import TextInput from "../../shared-components/TextInput";
-import { FormValues, Gender, Race } from "../../pages/ReRegFormPage";
-import FormAttribute from "../../shared-components/FormAttribute";
 import { DUMMY_LINK } from "../../routes";
+import { FormValues, Gender, Race } from "../../pages/ReRegFormPage";
+import Card from "../../shared-components/Card";
+import FormAttribute from "../../shared-components/FormAttribute";
+import FormCol from "../../shared-components/FormCol";
+import FormLabel from "../../shared-components/FormLabel";
+import FormRow from "../../shared-components/FormRow";
+import TextInput from "../../shared-components/TextInput";
 
 interface Props {
   formValues: FormValues;
@@ -36,8 +38,8 @@ const ReRegFormCardName: FC<Props> = ({
       title="Full Name"
       description="All names shown here will be printed on your IC."
     >
-      <div className="flex -mx-3">
-        <div className="w-full lg:w-1/2 xl:w-1/2 px-3 mb-6">
+      <FormRow>
+        <FormCol className="lg:w-1/2">
           <FormLabel htmlFor="principalName">Name</FormLabel>
           <TextInput
             id="principalName"
@@ -47,11 +49,11 @@ const ReRegFormCardName: FC<Props> = ({
             onFocus={onFocus}
             onBlur={onBlur}
           />
-        </div>
-      </div>
+        </FormCol>
+      </FormRow>
 
-      <div className="flex -mx-3">
-        <div className="w-full lg:w-1/2 xl:w-1/2 px-3 mb-6">
+      <FormRow>
+        <FormCol className="lg:w-1/2">
           <FormLabel
             htmlFor="aliasName"
             isOptional={true}
@@ -67,20 +69,20 @@ const ReRegFormCardName: FC<Props> = ({
             onFocus={onFocus}
             onBlur={onBlur}
           />
-        </div>
-      </div>
+        </FormCol>
+      </FormRow>
 
       {aliasHypyName && (
-        <div className="flex -mx-3">
-          <div className="w-full lg:w-1/2 xl:w-1/2 px-3 mb-6">
+        <FormRow>
+          <FormCol className="lg:w-1/2">
             <FormLabel htmlFor="aliasHypyName">Alias in hanyu pinyin</FormLabel>
             <FormAttribute value={aliasHypyName} />
-          </div>
-        </div>
+          </FormCol>
+        </FormRow>
       )}
 
-      <div className="flex -mx-3">
-        <div className="w-full lg:w-1/2 xl:w-1/2 px-3 mb-6">
+      <FormRow>
+        <FormCol className="lg:w-1/2">
           <FormLabel
             htmlFor="ethnicName"
             isOptional={true}
@@ -96,12 +98,12 @@ const ReRegFormCardName: FC<Props> = ({
             onFocus={onFocus}
             onBlur={onBlur}
           />
-        </div>
-      </div>
+        </FormCol>
+      </FormRow>
 
       {race === Race.CHINESE && (
-        <div className="flex -mx-3">
-          <div className="w-full lg:w-1/2 xl:w-1/2 px-3 mb-6">
+        <FormRow>
+          <FormCol className="lg:w-1/2">
             <FormLabel htmlFor="hypyName">
               Ethnic name in hanyu pinyin
             </FormLabel>
@@ -113,13 +115,13 @@ const ReRegFormCardName: FC<Props> = ({
               onFocus={onFocus}
               onBlur={onBlur}
             />
-          </div>
-        </div>
+          </FormCol>
+        </FormRow>
       )}
 
       {gender === Gender.FEMALE && (
-        <div className="flex -mx-3">
-          <div className="w-full lg:w-1/2 xl:w-1/2 px-3 mb-6">
+        <FormRow>
+          <FormCol className="lg:w-1/2">
             <FormLabel
               htmlFor="marriedName"
               isOptional={true}
@@ -147,8 +149,8 @@ const ReRegFormCardName: FC<Props> = ({
               onFocus={onFocus}
               onBlur={onBlur}
             />
-          </div>
-        </div>
+          </FormCol>
+        </FormRow>
       )}
     </Card>
   );

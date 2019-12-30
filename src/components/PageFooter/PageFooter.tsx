@@ -72,43 +72,29 @@ const PageFooter: FC<{}> = () => {
   return (
     <footer className="bg-blue-900 text-white p-4 mt-20">
       <GridContainer>
-        <div className="flex -mx-3">
-          <div className="w-full px-3">
-            <h2 className="font-sans text-white my-5">Site Name</h2>
-          </div>
+        <h2 className="font-sans text-white my-5">
+          Re-registration of NRIC concept
+        </h2>
+
+        <div className="flex flex-col w-full items-start justify-center lg:flex-row lg:items-center lg:justify-end">
+          {renderFeedbackLinks()}
+          <div className="flex mt-4 lg:mt-0">{renderSocialLinks()}</div>
         </div>
 
-        <div className="flex -mx-3">
-          <div className="flex flex-col w-full items-start justify-center lg:flex-row lg:items-center lg:justify-end px-3">
-            {renderFeedbackLinks()}
-            <div className="flex mt-4 lg:mt-0">{renderSocialLinks()}</div>
-          </div>
-        </div>
+        <div className="border-b border-white my-4"></div>
 
-        <div className="flex -mx-3">
-          <div className="w-full px-3">
-            <div className="border-b border-white my-4"></div>
-          </div>
-        </div>
+        <div className="flex flex-col lg:flex-row">{renderOtherLinks()}</div>
 
-        <div className="flex -mx-3">
-          <div className="flex flex-col lg:flex-row px-3">
-            {renderOtherLinks()}
-          </div>
-        </div>
-
-        <div className="flex justify-start lg:justify-end -mx-3">
-          <div className="flex flex-col lg:flex-row text-sm mt-6 mb-4 px-3">
+        <div className="flex justify-start lg:justify-end mt-6 mb-4">
+          <div className="flex flex-col lg:flex-row text-sm">
             <span>&copy; {new Date().getFullYear()} Dummy Text.&nbsp;</span>
             <span>Last Updated on 30 December 2019.</span>
           </div>
         </div>
 
-        <div className="flex items-center justify-start lg:justify-center -mx-3">
-          <span className="text-sm font-semibold px-3">
-            This website is optimised for IE version 10, 11, Firefox, Chrome,
-            Safari.
-          </span>
+        <div className="flex items-center justify-start lg:justify-center text-sm font-semibold">
+          This website is optimised for IE version 10, 11, Firefox, Chrome,
+          Safari.
         </div>
       </GridContainer>
     </footer>

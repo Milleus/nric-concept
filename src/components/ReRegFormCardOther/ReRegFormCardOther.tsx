@@ -1,10 +1,12 @@
 import React, { FC, ChangeEventHandler } from "react";
 
 import { FormValues } from "../../pages/ReRegFormPage";
-import Select, { SelectOption } from "../../shared-components/Select/Select";
 import Card from "../../shared-components/Card";
-import FormLabel from "../../shared-components/FormLabel";
 import FormAttribute from "../../shared-components/FormAttribute";
+import FormCol from "../../shared-components/FormCol";
+import FormLabel from "../../shared-components/FormLabel";
+import FormRow from "../../shared-components/FormRow";
+import Select, { SelectOption } from "../../shared-components/Select/Select";
 
 interface Props {
   formValues: FormValues;
@@ -21,20 +23,20 @@ const ReRegFormCardOther: FC<Props> = ({
 
   return (
     <Card title="Other Particulars">
-      <div className="flex -mx-3">
-        <div className="w-full lg:w-1/2 xl:w-1/2 px-3 mb-6">
+      <FormRow>
+        <FormCol className="lg:w-1/2">
           <FormLabel htmlFor="gender">Sex</FormLabel>
           <FormAttribute value={gender} />
-        </div>
+        </FormCol>
 
-        <div className="w-full lg:w-1/2 xl:w-1/2 px-3 mb-6">
+        <FormCol className="lg:w-1/2">
           <FormLabel htmlFor="race">Race</FormLabel>
           <FormAttribute value={race} />
-        </div>
-      </div>
+        </FormCol>
+      </FormRow>
 
-      <div className="flex -mx-3">
-        <div className="w-full lg:w-1/2 xl:w-1/2 px-3 mb-6">
+      <FormRow>
+        <FormCol className="lg:w-1/2">
           <FormLabel htmlFor="religion">Religion</FormLabel>
           <Select
             id="religion"
@@ -43,8 +45,8 @@ const ReRegFormCardOther: FC<Props> = ({
             options={religionOptions}
             onChange={onChange}
           />
-        </div>
-      </div>
+        </FormCol>
+      </FormRow>
     </Card>
   );
 };

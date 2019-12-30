@@ -1,9 +1,11 @@
 import React, { FC, ChangeEventHandler } from "react";
 
-import Card from "../../shared-components/Card";
-import FormLabel from "../../shared-components/FormLabel";
-import TextInput from "../../shared-components/TextInput";
 import { FormValues } from "../../pages/ReRegFormPage";
+import Card from "../../shared-components/Card";
+import FormCol from "../../shared-components/FormCol";
+import FormLabel from "../../shared-components/FormLabel";
+import FormRow from "../../shared-components/FormRow";
+import TextInput from "../../shared-components/TextInput";
 
 interface Props {
   formValues: FormValues;
@@ -18,8 +20,8 @@ const ReRegFormCardContact: FC<Props> = ({ formValues, onChange }) => {
       title="Contact Details"
       description="We'll contact you via the email and number here for any application matters."
     >
-      <div className="flex -mx-3">
-        <div className="w-full lg:w-1/2 xl:w-1/2 px-3 mb-6">
+      <FormRow>
+        <FormCol className="lg:w-1/2">
           <FormLabel htmlFor="emailAddress">Email</FormLabel>
           <TextInput
             id="emailAddress"
@@ -28,11 +30,11 @@ const ReRegFormCardContact: FC<Props> = ({ formValues, onChange }) => {
             type="email"
             onChange={onChange}
           />
-        </div>
-      </div>
+        </FormCol>
+      </FormRow>
 
-      <div className="flex flex-wrap -mx-3">
-        <div className="w-full lg:w-1/2 xl:w-1/2 px-3 mb-6">
+      <FormRow className="flex-wrap">
+        <FormCol className="lg:w-1/2">
           <FormLabel htmlFor="contactNumber1">Mobile number</FormLabel>
           <TextInput
             id="contactNumber1"
@@ -41,9 +43,9 @@ const ReRegFormCardContact: FC<Props> = ({ formValues, onChange }) => {
             placeholder="Please indicate"
             onChange={onChange}
           />
-        </div>
+        </FormCol>
 
-        <div className="w-full lg:w-1/2 xl:w-1/2 px-3 mb-6">
+        <FormCol className="lg:w-1/2">
           <FormLabel htmlFor="contactNumber2" isOptional={true}>
             Alternate contact number
           </FormLabel>
@@ -54,8 +56,8 @@ const ReRegFormCardContact: FC<Props> = ({ formValues, onChange }) => {
             placeholder="Please indicate"
             onChange={onChange}
           />
-        </div>
-      </div>
+        </FormCol>
+      </FormRow>
     </Card>
   );
 };

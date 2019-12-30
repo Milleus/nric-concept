@@ -47,12 +47,12 @@ const IdentityCard: FC<Props> = ({ formValues, activeField }) => {
         IDENTITY CARD NO. <span className="font-semibold">{nricNumber}</span>
       </div>
 
-      <div className="flex p-2 -mx-3">
-        <div className="w-full sm:w-1/3 px-3">
+      <div className="flex p-2">
+        <div className="w-full sm:w-1/3 mr-3">
           <img />
         </div>
 
-        <div className="w-full sm:w-2/3 px-3">
+        <div className="w-full sm:w-2/3">
           <label htmlFor="principalName" className="cursor-pointer">
             <p className="text-gray-800 text-xs font-semibold">Name</p>
             <p className="font-semibold leading-tight">
@@ -69,12 +69,12 @@ const IdentityCard: FC<Props> = ({ formValues, activeField }) => {
 
           {renderMinorLabelField("Race", race)}
 
-          <div className="flex -mx-3">
-            <div className="w-full sm:1/2 px-3">
+          <div className="flex">
+            <div className="w-full sm:1/2 mr-3">
               {renderMinorLabelField("Date of birth", dateOfBirth)}
             </div>
 
-            <div className="w-full sm:1/2 px-3">
+            <div className="w-full sm:1/2">
               {renderMinorLabelField("Sex", gender)}
             </div>
           </div>
