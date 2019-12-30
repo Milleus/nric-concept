@@ -7,6 +7,7 @@ import React, {
 } from "react";
 
 import ErrorMessage from "../ErrorMessage";
+import styles from "./style.module.scss";
 
 interface Props {
   id: string;
@@ -55,8 +56,8 @@ const TextInput: FC<Props> = ({
           autoComplete={autoComplete}
           className={classnames(
             `w-full p-3 appearance-none bg-white rounded border border-gray-500
-            uppercase placeholder-gray-500 placeholder:normal-case
-            focus:outline-none focus:border-blue-900`,
+            uppercase placeholder-gray-500 focus:outline-none focus:border-blue-900
+            ${styles.textInput}`,
             inputConditionalClass
           )}
           onChange={onChange}
