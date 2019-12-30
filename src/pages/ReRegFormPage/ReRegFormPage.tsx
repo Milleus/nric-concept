@@ -1,13 +1,14 @@
 import React, { FC, useState, ChangeEvent } from "react";
 
 import GridContainer from "../../shared-components/GridContainer";
+import IdentityCard from "../../components/IdentityCard";
+import PageFooter from "../../components/PageFooter/PageFooter";
 import PageHeader from "../../components/PageHeader";
 import PageTitle from "../../components/PageTitle";
 import ReRegFormCardContact from "../../components/ReRegFormCardContact";
 import ReRegFormCardName from "../../components/ReRegFormCardName";
 import ReRegFormCardOther from "../../components/ReRegFormCardOther";
-import IdentityCard from "../../components/IdentityCard";
-import PageFooter from "../../components/PageFooter/PageFooter";
+import ReRegFormCardPhoto from "../../components/ReRegFormCardPhoto";
 
 export enum Gender {
   UNKNOWN = "U",
@@ -139,6 +140,8 @@ const ReRegFormPage: FC<{}> = () => {
           </div>
 
           <div className="w-full px-4">
+            <ReRegFormCardPhoto />
+
             <ReRegFormCardName
               formValues={formValues}
               onChange={handleChange}

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="170px" height="218px" viewBox="0 0 170 218" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 58 (84663) - https://sketch.com -->
+    <title>Desktop/Photo Upload/Empty</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="-1.42108547e-14" width="170" height="217.421053" rx="2.58048"></rect>
+        <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="170" height="217.421053" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+    </defs>
+    <g id="Photo-Upload" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g transform="translate(-32.000000, -37.000000)" id="Photo-Upload/Empty">
+            <g transform="translate(32.000000, 37.000000)">
+                <g id="Group">
+                    <use id="Rectangle" stroke="#153855" mask="url(#mask-2)" stroke-width="2" fill="#C5D0DE" opacity="0.25" stroke-dasharray="8,6" xlink:href="#path-1"></use>
+                    <rect id="Rectangle" fill="#D8D8D8" x="82.1034483" y="80" width="5.79310345" height="56" rx="2.89655172"></rect>
+                    <path d="M85,80 C86.5997213,80 87.8965517,81.2968304 87.8965517,82.8965517 L87.8965517,133.103448 C87.8965517,134.70317 86.5997213,136 85,136 C83.4002787,136 82.1034483,134.70317 82.1034483,133.103448 L82.1034483,82.8965517 C82.1034483,81.2968304 83.4002787,80 85,80 Z" id="Rectangle-Copy" fill="#D8D8D8" transform="translate(85.000000, 108.000000) rotate(-270.000000) translate(-85.000000, -108.000000) "></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
