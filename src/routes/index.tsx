@@ -1,1 +1,1 @@
-export const DUMMY_LINK = "JavaScript:Void(0);";
+export const DUMMY_LINK = "#";
