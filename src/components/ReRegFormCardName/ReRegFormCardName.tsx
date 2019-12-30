@@ -1,22 +1,25 @@
-import React, { FC, ChangeEventHandler } from "react";
+import React, { FC, ChangeEventHandler, FocusEventHandler } from "react";
 
 import Card from "../../shared-components/Card";
 import FormLabel from "../../shared-components/FormLabel";
 import TextInput from "../../shared-components/TextInput";
-import {
-  FormValues,
-  Gender,
-  Race
-} from "../../pages/ReRegFormPage/ReRegFormPage";
+import { FormValues, Gender, Race } from "../../pages/ReRegFormPage";
 import FormAttribute from "../../shared-components/FormAttribute";
 import { DUMMY_LINK } from "../../routes";
 
 interface Props {
   formValues: FormValues;
   onChange: ChangeEventHandler;
+  onFocus: FocusEventHandler;
+  onBlur: FocusEventHandler;
 }
 
-const ReRegFormCardName: FC<Props> = ({ formValues, onChange }) => {
+const ReRegFormCardName: FC<Props> = ({
+  formValues,
+  onChange,
+  onFocus,
+  onBlur
+}) => {
   const {
     principalName,
     aliasName,
@@ -34,19 +37,21 @@ const ReRegFormCardName: FC<Props> = ({ formValues, onChange }) => {
       description="All names shown here will be printed on your IC."
     >
       <div className="flex -mx-2">
-        <div className="w-full sm:w-full md:w-1/2 lg:w-1/2 xl:w-1/2 px-2 mb-6">
+        <div className="w-full lg:w-1/2 xl:w-1/2 px-2 mb-6">
           <FormLabel htmlFor="principalName">Name</FormLabel>
           <TextInput
             id="principalName"
             name="principalName"
             value={principalName}
             onChange={onChange}
+            onFocus={onFocus}
+            onBlur={onBlur}
           />
         </div>
       </div>
 
       <div className="flex -mx-2">
-        <div className="w-full sm:w-full md:w-1/2 lg:w-1/2 xl:w-1/2 px-2 mb-6">
+        <div className="w-full lg:w-1/2 xl:w-1/2 px-2 mb-6">
           <FormLabel
             htmlFor="aliasName"
             isOptional={true}
@@ -59,13 +64,15 @@ const ReRegFormCardName: FC<Props> = ({ formValues, onChange }) => {
             name="aliasName"
             value={aliasName}
             onChange={onChange}
+            onFocus={onFocus}
+            onBlur={onBlur}
           />
         </div>
       </div>
 
       {aliasHypyName && (
         <div className="flex -mx-2">
-          <div className="w-full sm:w-full md:w-1/2 lg:w-1/2 xl:w-1/2 px-2 mb-6">
+          <div className="w-full lg:w-1/2 xl:w-1/2 px-2 mb-6">
             <FormLabel htmlFor="aliasHypyName">Alias in hanyu pinyin</FormLabel>
             <FormAttribute value={aliasHypyName} />
           </div>
@@ -73,7 +80,7 @@ const ReRegFormCardName: FC<Props> = ({ formValues, onChange }) => {
       )}
 
       <div className="flex -mx-2">
-        <div className="w-full sm:w-full md:w-1/2 lg:w-1/2 xl:w-1/2 px-2 mb-6">
+        <div className="w-full lg:w-1/2 xl:w-1/2 px-2 mb-6">
           <FormLabel
             htmlFor="ethnicName"
             isOptional={true}
@@ -86,13 +93,15 @@ const ReRegFormCardName: FC<Props> = ({ formValues, onChange }) => {
             name="ethnicName"
             value={ethnicName}
             onChange={onChange}
+            onFocus={onFocus}
+            onBlur={onBlur}
           />
         </div>
       </div>
 
       {race === Race.CHINESE && (
         <div className="flex -mx-2">
-          <div className="w-full sm:w-full md:w-1/2 lg:w-1/2 xl:w-1/2 px-2 mb-6">
+          <div className="w-full lg:w-1/2 xl:w-1/2 px-2 mb-6">
             <FormLabel htmlFor="hypyName">
               Ethnic name in hanyu pinyin
             </FormLabel>
@@ -101,6 +110,8 @@ const ReRegFormCardName: FC<Props> = ({ formValues, onChange }) => {
               name="hypyName"
               value={hypyName}
               onChange={onChange}
+              onFocus={onFocus}
+              onBlur={onBlur}
             />
           </div>
         </div>
@@ -108,7 +119,7 @@ const ReRegFormCardName: FC<Props> = ({ formValues, onChange }) => {
 
       {gender === Gender.FEMALE && (
         <div className="flex -mx-2">
-          <div className="w-full sm:w-full md:w-1/2 lg:w-1/2 xl:w-1/2 px-2 mb-6">
+          <div className="w-full lg:w-1/2 xl:w-1/2 px-2 mb-6">
             <FormLabel
               htmlFor="marriedName"
               isOptional={true}
@@ -119,7 +130,6 @@ const ReRegFormCardName: FC<Props> = ({ formValues, onChange }) => {
                   <a
                     className="text-white"
                     href={DUMMY_LINK}
-                    target="_blank"
                     rel="noopener noreferrer"
                   >
                     View examples
@@ -134,6 +144,8 @@ const ReRegFormCardName: FC<Props> = ({ formValues, onChange }) => {
               name="marriedName"
               value={marriedName}
               onChange={onChange}
+              onFocus={onFocus}
+              onBlur={onBlur}
             />
           </div>
         </div>

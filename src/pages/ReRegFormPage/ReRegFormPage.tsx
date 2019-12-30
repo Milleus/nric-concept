@@ -6,18 +6,31 @@ import PageTitle from "../../components/PageTitle";
 import ReRegFormCardContact from "../../components/ReRegFormCardContact";
 import ReRegFormCardName from "../../components/ReRegFormCardName";
 import ReRegFormCardOther from "../../components/ReRegFormCardOther";
+import IdentityCard from "../../components/IdentityCard";
+import PageFooter from "../../components/PageFooter/PageFooter";
 
 export enum Gender {
-  UNKNOWN = "Unknown",
-  MALE = "Male",
-  FEMALE = "Female"
+  UNKNOWN = "U",
+  MALE = "M",
+  FEMALE = "F"
 }
 
 export enum Race {
-  UNKNOWN = "Unknown",
-  CHINESE = "Chinese",
-  MALAY = "Malay",
-  INDIAN = "Indian"
+  UNKNOWN = "UNKNOWN",
+  CHINESE = "CHINESE",
+  MALAY = "MALAY",
+  INDIAN = "INDIAN"
+}
+
+export enum Country {
+  SINGAPORE = "SINGAPORE",
+  MALAYSIA = "MALAYSIA"
+}
+
+export enum ActiveField {
+  NONE = "NONE",
+  NAME = "NAME",
+  ADDRESS = "ADDRESS"
 }
 
 export interface FormValues {
@@ -35,11 +48,19 @@ export interface FormValues {
   emailAddress: string;
   contactNumber1: string;
   contactNumber2: string;
-  // country: string;
-  // dateOfBirth: string;
+  dateOfBirth: string;
+  countryOfBirth: Country;
   // ethnicNameImageBase64: string;
   // selectedMaritalStatus: string;
   // language: string;
+  // block?: string;
+  // street?: string;
+  // floor?: string;
+  // unit?: string;
+  // buildingName?: string;
+  // country?: string;
+  // postalCode?: string;
+  address: string;
 }
 
 const religionOptions = [
@@ -56,25 +77,48 @@ const religionOptions = [
 
 const ReRegFormPage: FC<{}> = () => {
   const [formValues, setFormValues] = useState<FormValues>({
-    nricNumber: "S6353928G",
+    nricNumber: "S****147A",
     photoBase64Image: "",
-    principalName: "TAN AH SENG",
-    aliasName: "",
-    aliasHypyName: "SENG",
-    ethnicName: "",
+    principalName: "NG PEK KOK",
+    aliasName: "KEXIA",
+    aliasHypyName: "",
+    ethnicName: "陈啊盛",
     hypyName: "",
-    marriedName: "",
+    marriedName: "LIM PEK KOK",
     gender: Gender.FEMALE,
     race: Race.CHINESE,
     religion: "",
     emailAddress: "",
     contactNumber1: "",
-    contactNumber2: ""
+    contactNumber2: "",
+    dateOfBirth: "12-12-1912",
+    countryOfBirth: Country.SINGAPORE,
+    address: "4 FAKE AVENUE 4 #04-04 SINGAPORE 444444"
   });
+  const [activeField, setActiveField] = useState<ActiveField>(ActiveField.NONE);
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
-    setFormValues({ ...formValues, [name]: value });
+    setFormValues({ ...formValues, [name]: value.toUpperCase() });
+  };
+
+  const handleFocus = (event: any) => {
+    const { name } = event.target;
+
+    switch (name) {
+      case "principalName":
+      case "aliasName":
+      case "ethnicName":
+      case "marriedName":
+        setActiveField(ActiveField.NAME);
+        break;
+      default:
+        setActiveField(ActiveField.NONE);
+    }
+  };
+
+  const handleBlur = () => {
+    setActiveField(ActiveField.NONE);
   };
 
   const { nricNumber } = formValues;
@@ -89,11 +133,17 @@ const ReRegFormPage: FC<{}> = () => {
           subtitle={`Re-register IC No. ${nricNumber}`}
         />
 
-        <div className="flex -mx-2">
-          <div className="w-full sm:w-full md:w-1/2 lg:w-1/2 xl:w-1/2 px-2">
+        <div className="flex -mx-4">
+          <div className="w-auto px-4">
+            <IdentityCard formValues={formValues} activeField={activeField} />
+          </div>
+
+          <div className="w-full px-4">
             <ReRegFormCardName
               formValues={formValues}
               onChange={handleChange}
+              onFocus={handleFocus}
+              onBlur={handleBlur}
             />
 
             <ReRegFormCardOther
@@ -106,10 +156,6 @@ const ReRegFormPage: FC<{}> = () => {
               formValues={formValues}
               onChange={handleChange}
             />
-          </div>
-
-          <div className="w-full sm:w-full md:w-1/2 lg:w-1/2 xl:w-1/2 px-2">
-            <div>dummy card</div>
           </div>
         </div>
         {/* <form action="" className=" bg-white shadow-md rounded px-8 py-8 pt-8">
@@ -145,6 +191,8 @@ const ReRegFormPage: FC<{}> = () => {
           </div>
         </form> */}
       </GridContainer>
+
+      <PageFooter />
     </>
   );
 };
