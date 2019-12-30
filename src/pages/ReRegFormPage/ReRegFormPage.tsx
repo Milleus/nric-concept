@@ -134,7 +134,7 @@ const ReRegFormPage: FC<{}> = () => {
         />
 
         <div className="flex -mx-4">
-          <div className="w-auto px-4">
+          <div className="hidden w-auto lg:block px-4">
             <IdentityCard formValues={formValues} activeField={activeField} />
           </div>
 

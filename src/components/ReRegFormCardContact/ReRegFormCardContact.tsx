@@ -21,7 +21,7 @@ const ReRegFormCardContact: FC<Props> = ({ formValues, onChange }) => {
       description="We'll contact you via the email and number here for any application matters."
     >
       <FormRow>
-        <FormCol className="lg:w-1/2">
+        <FormCol className="sm:w-1/2">
           <FormLabel htmlFor="emailAddress">Email</FormLabel>
           <TextInput
             id="emailAddress"
@@ -34,7 +34,7 @@ const ReRegFormCardContact: FC<Props> = ({ formValues, onChange }) => {
       </FormRow>
 
       <FormRow className="flex-wrap">
-        <FormCol className="lg:w-1/2">
+        <FormCol className="sm:w-1/2">
           <FormLabel htmlFor="contactNumber1">Mobile number</FormLabel>
           <TextInput
             id="contactNumber1"
@@ -45,7 +45,7 @@ const ReRegFormCardContact: FC<Props> = ({ formValues, onChange }) => {
           />
         </FormCol>
 
-        <FormCol className="lg:w-1/2">
+        <FormCol className="sm:w-1/2">
           <FormLabel htmlFor="contactNumber2" isOptional={true}>
             Alternate contact number
           </FormLabel>

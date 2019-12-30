@@ -39,7 +39,7 @@ const ReRegFormCardName: FC<Props> = ({
       description="All names shown here will be printed on your IC."
     >
       <FormRow>
-        <FormCol className="lg:w-1/2">
+        <FormCol className="sm:w-1/2">
           <FormLabel htmlFor="principalName">Name</FormLabel>
           <TextInput
             id="principalName"
@@ -53,7 +53,7 @@ const ReRegFormCardName: FC<Props> = ({
       </FormRow>
 
       <FormRow>
-        <FormCol className="lg:w-1/2">
+        <FormCol className="sm:w-1/2">
           <FormLabel
             htmlFor="aliasName"
             isOptional={true}
@@ -74,7 +74,7 @@ const ReRegFormCardName: FC<Props> = ({
 
       {aliasHypyName && (
         <FormRow>
-          <FormCol className="lg:w-1/2">
+          <FormCol className="sm:w-1/2">
             <FormLabel htmlFor="aliasHypyName">Alias in hanyu pinyin</FormLabel>
             <FormAttribute value={aliasHypyName} />
           </FormCol>
@@ -82,7 +82,7 @@ const ReRegFormCardName: FC<Props> = ({
       )}
 
       <FormRow>
-        <FormCol className="lg:w-1/2">
+        <FormCol className="sm:w-1/2">
           <FormLabel
             htmlFor="ethnicName"
             isOptional={true}
@@ -103,7 +103,7 @@ const ReRegFormCardName: FC<Props> = ({
 
       {race === Race.CHINESE && (
         <FormRow>
-          <FormCol className="lg:w-1/2">
+          <FormCol className="sm:w-1/2">
             <FormLabel htmlFor="hypyName">
               Ethnic name in hanyu pinyin
             </FormLabel>
@@ -121,7 +121,7 @@ const ReRegFormCardName: FC<Props> = ({
 
       {gender === Gender.FEMALE && (
         <FormRow>
-          <FormCol className="lg:w-1/2">
+          <FormCol className="sm:w-1/2">
             <FormLabel
               htmlFor="marriedName"
               isOptional={true}

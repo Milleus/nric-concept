@@ -24,19 +24,19 @@ const ReRegFormCardOther: FC<Props> = ({
   return (
     <Card title="Other Particulars">
       <FormRow>
-        <FormCol className="lg:w-1/2">
+        <FormCol className="sm:w-1/2">
           <FormLabel htmlFor="gender">Sex</FormLabel>
           <FormAttribute value={gender} />
         </FormCol>
 
-        <FormCol className="lg:w-1/2">
+        <FormCol className="sm:w-1/2">
           <FormLabel htmlFor="race">Race</FormLabel>
           <FormAttribute value={race} />
         </FormCol>
       </FormRow>
 
       <FormRow>
-        <FormCol className="lg:w-1/2">
+        <FormCol className="sm:w-1/2">
           <FormLabel htmlFor="religion">Religion</FormLabel>
           <Select
             id="religion"
