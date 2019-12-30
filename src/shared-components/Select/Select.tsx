@@ -52,7 +52,7 @@ const Select: FC<Props> = ({
   };
 
   const selectConditionalClass = {
-    "normal-case text-gray-400": value === "",
+    "normal-case text-gray-500": value === "",
     "border-red-600": error
   };
 
@@ -63,7 +63,7 @@ const Select: FC<Props> = ({
           id={id}
           name={name}
           className={classnames(
-            `w-full p-3 appearance-none bg-white rounded border border-gray-400
+            `w-full p-3 appearance-none bg-white rounded border border-gray-500
             focus:outline-none focus:border-blue-900`,
             selectConditionalClass
           )}

@@ -54,8 +54,8 @@ const TextInput: FC<Props> = ({
           maxLength={maxLength}
           autoComplete={autoComplete}
           className={classnames(
-            `w-full p-3 appearance-none bg-white rounded border border-gray-400
-            uppercase placeholder-gray-400 placeholder:normal-case
+            `w-full p-3 appearance-none bg-white rounded border border-gray-500
+            uppercase placeholder-gray-500 placeholder:normal-case
             focus:outline-none focus:border-blue-900`,
             inputConditionalClass
           )}
@@ -65,7 +65,7 @@ const TextInput: FC<Props> = ({
         />
         {onClearClick && value.length > 0 && (
           <i
-            className="fas fa-times-circle text-gray-600 absolute right-0 mr-3"
+            className="fas fa-times-circle text-gray-500 absolute right-0 mr-3"
             onClick={onClearClick}
           />
         )}

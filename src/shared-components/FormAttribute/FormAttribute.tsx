@@ -5,7 +5,7 @@ interface Props {
 }
 
 const FormAttribute: FC<Props> = ({ value }) => {
-  return <div className="py-3 text-black">{value}</div>;
+  return <div className="py-3 text-black text-lg">{value}</div>;
 };
 
 export default FormAttribute;

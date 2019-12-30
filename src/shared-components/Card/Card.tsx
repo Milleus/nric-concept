@@ -13,7 +13,7 @@ const Card: FC<Props> = ({ children, title, description, id }) => {
       id={id}
       className="w-full rounded overflow-hidden bg-white shadow mb-8"
     >
-      <div className="border-b border-gray-400 p-6">
+      <div className="border-b border-gray-500 p-6">
         <h2>{title}</h2>
         {description && <p className="mt-2">{description}</p>}
       </div>
