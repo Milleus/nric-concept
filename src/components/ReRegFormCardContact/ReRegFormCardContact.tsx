@@ -3,7 +3,7 @@ import React, { FC, ChangeEventHandler } from "react";
 import Card from "../../shared-components/Card";
 import FormLabel from "../../shared-components/FormLabel";
 import TextInput from "../../shared-components/TextInput";
-import { FormValues } from "../../pages/ReRegFormPage/ReRegFormPage";
+import { FormValues } from "../../pages/ReRegFormPage";
 
 interface Props {
   formValues: FormValues;
@@ -19,7 +19,7 @@ const ReRegFormCardContact: FC<Props> = ({ formValues, onChange }) => {
       description="We'll contact you via the email and number here for any application matters."
     >
       <div className="flex -mx-2">
-        <div className="w-full sm:w-full md:w-1/2 lg:w-1/2 xl:w-1/2 px-2 mb-6">
+        <div className="w-full lg:w-1/2 xl:w-1/2 px-2 mb-6">
           <FormLabel htmlFor="emailAddress">Email</FormLabel>
           <TextInput
             id="emailAddress"
@@ -31,18 +31,19 @@ const ReRegFormCardContact: FC<Props> = ({ formValues, onChange }) => {
         </div>
       </div>
 
-      <div className="flex -mx-2">
-        <div className="w-full sm:w-full md:w-1/2 lg:w-1/2 xl:w-1/2 px-2 mb-6">
+      <div className="flex flex-wrap -mx-2">
+        <div className="w-full lg:w-1/2 xl:w-1/2 px-2 mb-6">
           <FormLabel htmlFor="contactNumber1">Mobile number</FormLabel>
           <TextInput
             id="contactNumber1"
             name="contactNumber1"
             value={contactNumber1}
+            placeholder="Please indicate"
             onChange={onChange}
           />
         </div>
 
-        <div className="w-full sm:w-full md:w-1/2 lg:w-1/2 xl:w-1/2 px-2 mb-6">
+        <div className="w-full lg:w-1/2 xl:w-1/2 px-2 mb-6">
           <FormLabel htmlFor="contactNumber2" isOptional={true}>
             Alternate contact number
           </FormLabel>
@@ -50,6 +51,7 @@ const ReRegFormCardContact: FC<Props> = ({ formValues, onChange }) => {
             id="contactNumber2"
             name="contactNumber2"
             value={contactNumber2}
+            placeholder="Please indicate"
             onChange={onChange}
           />
         </div>
