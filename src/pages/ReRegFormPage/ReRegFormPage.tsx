@@ -98,6 +98,33 @@ const ReRegFormPage: FC<{}> = () => {
   });
   const [activeField, setActiveField] = useState<ActiveField>(ActiveField.NONE);
 
+  const handleUploadChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const { files } = event.target;
+
+    if (files) {
+      const file = files[0];
+      const { name, type } = file;
+
+      if (
+        name.split(".").length !== 2 ||
+        (type !== "image/jpg" && type !== "image/jpeg" && type !== "image/png")
+      ) {
+        console.log("TODO: add error display");
+        return;
+      }
+
+      const fileReader = new FileReader();
+      fileReader.readAsDataURL(file);
+
+      fileReader.onloadend = () => {
+        setFormValues({
+          ...formValues,
+          photoBase64Image: fileReader.result as string
+        });
+      };
+    }
+  };
+
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
     setFormValues({ ...formValues, [name]: value.toUpperCase() });
@@ -140,7 +167,10 @@ const ReRegFormPage: FC<{}> = () => {
           </div>
 
           <div className="w-full px-4">
-            <ReRegFormCardPhoto />
+            <ReRegFormCardPhoto
+              formValues={formValues}
+              onUploadChange={handleUploadChange}
+            />
 
             <ReRegFormCardName
               formValues={formValues}

@@ -48,7 +48,7 @@ const PageFooter: FC<{}> = () => {
           href={link.url}
           rel="noopener noreferrer"
         >
-          <i className={link.iconName}></i>
+          <i className={link.iconName} />
         </a>
       );
     });
@@ -81,7 +81,7 @@ const PageFooter: FC<{}> = () => {
           <div className="flex mt-4 lg:mt-0">{renderSocialLinks()}</div>
         </div>
 
-        <div className="border-b border-white my-4"></div>
+        <div className="border-b border-white my-4" />
 
         <div className="flex flex-col lg:flex-row">{renderOtherLinks()}</div>
 

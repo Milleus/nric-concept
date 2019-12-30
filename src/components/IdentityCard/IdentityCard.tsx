@@ -2,6 +2,7 @@ import classnames from "classnames/bind";
 import React, { FC, useEffect, useRef } from "react";
 
 import { FormValues, ActiveField } from "../../pages/ReRegFormPage";
+import photoUploadPreview from "./images/photo-upload-preview.svg";
 import styles from "./style.module.scss";
 
 const cx = classnames.bind(styles);
@@ -46,6 +47,7 @@ const IdentityCard: FC<Props> = ({ formValues, activeField }) => {
   }, []);
 
   const {
+    photoBase64Image,
     nricNumber,
     principalName,
     aliasName,
@@ -76,17 +78,26 @@ const IdentityCard: FC<Props> = ({ formValues, activeField }) => {
       ref={identifyCardRef}
       className={`bg-pink-200 rounded-lg overflow-hidden ${styles.nric}`}
     >
-      <div id="helper" className={focusBoxClass}></div>
+      <div id="helper" className={focusBoxClass} />
       <div className="bg-gray-400 p-2 mt-4 text-lg">
         IDENTITY CARD NO. <span className="font-semibold">{nricNumber}</span>
       </div>
 
       <div className="flex p-2">
-        <div className="w-full sm:w-1/3 mr-3">
-          <img />
+        <div className="flex flex-col items-end w-1/4 mr-3">
+          <img
+            src={!!photoBase64Image ? photoBase64Image : photoUploadPreview}
+            alt="preview large"
+            className={`mb-2 ${styles.previewLarge}`}
+          />
+          <img
+            src={!!photoBase64Image ? photoBase64Image : photoUploadPreview}
+            alt="preview small"
+            className={styles.previewSmall}
+          />
         </div>
 
-        <div className="w-full sm:w-2/3">
+        <div className="w-3/4">
           <label htmlFor="principalName" className="cursor-pointer">
             <p className="text-gray-800 text-xs font-semibold">Name</p>
             <p className="font-semibold leading-tight">
@@ -104,13 +115,11 @@ const IdentityCard: FC<Props> = ({ formValues, activeField }) => {
           {renderMinorLabelField("Race", race)}
 
           <div className="flex">
-            <div className="w-full sm:1/2 mr-3">
+            <div className="w-1/2 mr-3">
               {renderMinorLabelField("Date of birth", dateOfBirth)}
             </div>
 
-            <div className="w-full sm:1/2">
-              {renderMinorLabelField("Sex", gender)}
-            </div>
+            <div className="w-1/2">{renderMinorLabelField("Sex", gender)}</div>
           </div>
 
           {renderMinorLabelField("Country of birth", countryOfBirth)}
