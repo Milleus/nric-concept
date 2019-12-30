@@ -14,7 +14,6 @@ const Masthead: FC<MastheadProps> = ({ link, title }) => (
       <a
         href={link}
         rel="noopener noreferrer"
-        target="_blank"
         className="flex items-center h-6 font-lato text-xs text-black"
       >
         <LionheadMast />

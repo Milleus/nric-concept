@@ -1,21 +1,24 @@
 import React, { FC } from "react";
 
-import { GOV_SG, ICA_ESERVICE_DASHBOARD } from "../../routes/index";
+import { DUMMY_LINK } from "../../routes/index";
 import { ReactComponent as IcaLogo } from "./images/ica-logo.svg";
-import Masthead from "../../shared-components/Masthead";
 import GridContainer from "../../shared-components/GridContainer";
+import Masthead from "../../shared-components/Masthead";
 import Navbar from "../../shared-components/Navbar";
 
 const PageHeader: FC<{}> = () => {
   return (
     <>
-      <Masthead link={GOV_SG} title="A Singapore Government Agency Website" />
+      <Masthead
+        link={DUMMY_LINK}
+        title="A Singapore Government Agency Website"
+      />
       <GridContainer>
         <IcaLogo className="py-3" />
       </GridContainer>
       <Navbar>
         <a
-          href={ICA_ESERVICE_DASHBOARD}
+          href={DUMMY_LINK}
           rel="noopener noreferrer"
           className="text-white font-normal"
         >

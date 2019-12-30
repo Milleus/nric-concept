@@ -9,7 +9,7 @@ import {
   Race
 } from "../../pages/ReRegFormPage/ReRegFormPage";
 import FormAttribute from "../../shared-components/FormAttribute";
-import { ICA_FAQ_NAMES } from "../../routes";
+import { DUMMY_LINK } from "../../routes";
 
 interface Props {
   formValues: FormValues;
@@ -118,7 +118,7 @@ const ReRegFormCardName: FC<Props> = ({ formValues, onChange }) => {
                   marriage.{" "}
                   <a
                     className="text-white"
-                    href={ICA_FAQ_NAMES}
+                    href={DUMMY_LINK}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
