@@ -75,9 +75,9 @@ const IdentityCard: FC<Props> = ({ formValues, activeField }) => {
   });
 
   return (
-    <div ref={identifyCardRef}>
+    <div ref={identifyCardRef} className={styles.identityCard}>
       <h2 className="mb-2">Preview</h2>
-      <div className={`bg-pink-200 rounded-lg overflow-hidden ${styles.nric}`}>
+      <div className="bg-pink-200 rounded-lg overflow-hidden shadow-lg">
         <div id="helper" className={focusBoxClass} />
         <div className="bg-gray-400 p-2 mt-4 text-lg">
           IDENTITY CARD NO. <span className="font-semibold">{nricNumber}</span>
