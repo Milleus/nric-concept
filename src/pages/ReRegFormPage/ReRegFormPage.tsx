@@ -57,8 +57,8 @@ export interface FormValues {
   postalCode: string;
   blockNo: string;
   streetName: string;
-  floorNo?: string;
-  unitNo?: string;
+  floorNo: string;
+  unitNo: string;
   // contact details section
   emailAddress: string;
   contactNumber1: string;

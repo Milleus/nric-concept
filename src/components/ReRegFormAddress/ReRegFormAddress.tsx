@@ -2,9 +2,9 @@ import React, { FC, ChangeEventHandler, FocusEventHandler } from "react";
 
 import { FormValues } from "../../pages/ReRegFormPage";
 import Card from "../../shared-components/Card";
-import FormRow from "../../shared-components/FormRow";
 import FormCol from "../../shared-components/FormCol";
 import FormLabel from "../../shared-components/FormLabel";
+import FormRow from "../../shared-components/FormRow";
 import TextInput from "../../shared-components/TextInput";
 
 interface Props {
@@ -26,7 +26,7 @@ const ReRegFormAddress: FC<Props> = ({
     <Card title="Address">
       <FormRow>
         <FormCol className="sm:w-1/4">
-          <FormLabel htmlFor="postalCode">Postal Code</FormLabel>
+          <FormLabel htmlFor="postalCode">Postal code</FormLabel>
           <TextInput
             id="postalCode"
             name="postalCode"
@@ -40,21 +40,20 @@ const ReRegFormAddress: FC<Props> = ({
       </FormRow>
 
       <FormRow className="flex-wrap">
-        <FormCol className="w-1/6 sm:w-1/6">
-          <FormLabel htmlFor="blockNo">Block No</FormLabel>
+        <FormCol className="sm:w-1/4">
+          <FormLabel htmlFor="blockNo">Block number</FormLabel>
           <TextInput
             id="blockNo"
             name="blockNo"
             value={blockNo}
-            type="number"
             onChange={onChange}
             onFocus={onFocus}
             onBlur={onBlur}
           />
         </FormCol>
 
-        <FormCol className="w-5/6 sm:w-5/6">
-          <FormLabel htmlFor="streetName">Street Name</FormLabel>
+        <FormCol className="sm:w-2/4">
+          <FormLabel htmlFor="streetName">Street name</FormLabel>
           <TextInput
             id="streetName"
             name="streetName"
@@ -67,8 +66,28 @@ const ReRegFormAddress: FC<Props> = ({
       </FormRow>
 
       <FormRow>
-        <FormCol className="sm:w-1/2">
-          <FormLabel htmlFor="religion">Religion</FormLabel>
+        <FormCol className="sm:w-1/4">
+          <FormLabel htmlFor="floorNo">Floor number</FormLabel>
+          <TextInput
+            id="floorNo"
+            name="floorNo"
+            value={floorNo}
+            onChange={onChange}
+            onFocus={onFocus}
+            onBlur={onBlur}
+          />
+        </FormCol>
+
+        <FormCol className="sm:w-1/4">
+          <FormLabel htmlFor="unitNo">Unit number</FormLabel>
+          <TextInput
+            id="unitNo"
+            name="unitNo"
+            value={unitNo}
+            onChange={onChange}
+            onFocus={onFocus}
+            onBlur={onBlur}
+          />
         </FormCol>
       </FormRow>
     </Card>
