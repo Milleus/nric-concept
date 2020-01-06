@@ -1,10 +1,10 @@
 import React, { FC } from "react";
 
 import { DUMMY_LINK } from "../../routes/index";
-import GridContainer from "../../shared-components/GridContainer";
-import Navbar from "../../shared-components/Navbar";
-import Masthead from "../../shared-components/Masthead";
 import { ReactComponent as IcaLogo } from "./images/ica-logo.svg";
+import GridContainer from "../../shared-components/GridContainer";
+import Masthead from "../../shared-components/Masthead";
+import Navbar from "../../shared-components/Navbar";
 
 const PageHeader: FC<{}> = () => {
   return (

@@ -5,10 +5,11 @@ import IdentityCard from "../../components/IdentityCard";
 import PageFooter from "../../components/PageFooter/PageFooter";
 import PageHeader from "../../components/PageHeader";
 import PageTitle from "../../components/PageTitle";
-import ReRegFormCardContact from "../../components/ReRegFormCardContact";
-import ReRegFormCardName from "../../components/ReRegFormCardName";
-import ReRegFormCardOther from "../../components/ReRegFormCardOther";
-import ReRegFormCardPhoto from "../../components/ReRegFormCardPhoto";
+import ReRegFormAddress from "../../components/ReRegFormAddress";
+import ReRegFormContact from "../../components/ReRegFormContact";
+import ReRegFormName from "../../components/ReRegFormName";
+import ReRegFormOther from "../../components/ReRegFormOther";
+import ReRegFormPhoto from "../../components/ReRegFormPhoto";
 
 export enum Gender {
   UNKNOWN = "U",
@@ -37,32 +38,31 @@ export enum ActiveField {
 
 export interface FormValues {
   nricNumber: string;
+  // photo section
   photoBase64Image: string;
+  // name section
   principalName: string;
   aliasName: string;
   aliasHypyName: string;
   ethnicName: string;
   hypyName: string;
   marriedName: string;
-  gender: Gender;
+  // other particulars section
   race: Race;
+  dateOfBirth: string;
+  gender: Gender;
+  countryOfBirth: Country;
   religion: string;
+  // address section
+  postalCode: string;
+  blockNo: string;
+  streetName: string;
+  floorNo?: string;
+  unitNo?: string;
+  // contact details section
   emailAddress: string;
   contactNumber1: string;
   contactNumber2: string;
-  dateOfBirth: string;
-  countryOfBirth: Country;
-  // ethnicNameImageBase64: string;
-  // selectedMaritalStatus: string;
-  // language: string;
-  // block?: string;
-  // street?: string;
-  // floor?: string;
-  // unit?: string;
-  // buildingName?: string;
-  // country?: string;
-  // postalCode?: string;
-  address: string;
 }
 
 const religionOptions = [
@@ -80,22 +80,31 @@ const religionOptions = [
 const ReRegFormPage: FC<{}> = () => {
   const [formValues, setFormValues] = useState<FormValues>({
     nricNumber: "S****147A",
+    // photo section
     photoBase64Image: "",
+    // name section
     principalName: "NG PEK KOK",
     aliasName: "KEXIA",
     aliasHypyName: "",
     ethnicName: "陈啊盛",
     hypyName: "",
     marriedName: "LIM PEK KOK",
-    gender: Gender.FEMALE,
+    // other particulars section
     race: Race.CHINESE,
+    dateOfBirth: "12-12-1912",
+    gender: Gender.FEMALE,
+    countryOfBirth: Country.SINGAPORE,
     religion: "",
+    // address section
+    postalCode: "444444",
+    blockNo: "4",
+    streetName: "FAKE AVENUE 4",
+    floorNo: "04",
+    unitNo: "04",
+    // contact details section
     emailAddress: "",
     contactNumber1: "",
-    contactNumber2: "",
-    dateOfBirth: "12-12-1912",
-    countryOfBirth: Country.SINGAPORE,
-    address: "4 FAKE AVENUE 4 #04-04 SINGAPORE 444444"
+    contactNumber2: ""
   });
   const [activeField, setActiveField] = useState<ActiveField>(ActiveField.NONE);
 
@@ -142,6 +151,14 @@ const ReRegFormPage: FC<{}> = () => {
       case "aliasName":
         setActiveField(ActiveField.NAME);
         break;
+      case "postalCode":
+      case "blockNo":
+      case "streetName":
+      case "floorNo":
+      case "unitNo":
+        setActiveField(ActiveField.ADDRESS);
+        break;
+      case "religion":
       default:
         setActiveField(ActiveField.NONE);
     }
@@ -165,27 +182,38 @@ const ReRegFormPage: FC<{}> = () => {
 
         <div className="flex -mx-4">
           <div className="w-full px-4">
-            <ReRegFormCardPhoto
+            <ReRegFormPhoto
               formValues={formValues}
               onUploadChange={handleUploadChange}
             />
 
-            <ReRegFormCardName
+            <ReRegFormName
               formValues={formValues}
               onChange={handleChange}
               onFocus={handleFocus}
               onBlur={handleBlur}
             />
 
-            <ReRegFormCardOther
+            <ReRegFormOther
               formValues={formValues}
               onChange={handleChange}
+              onFocus={handleFocus}
+              onBlur={handleBlur}
               religionOptions={religionOptions}
             />
 
-            <ReRegFormCardContact
+            <ReRegFormAddress
               formValues={formValues}
               onChange={handleChange}
+              onFocus={handleFocus}
+              onBlur={handleBlur}
+            />
+
+            <ReRegFormContact
+              formValues={formValues}
+              onChange={handleChange}
+              onFocus={handleFocus}
+              onBlur={handleBlur}
             />
           </div>
 
@@ -193,38 +221,7 @@ const ReRegFormPage: FC<{}> = () => {
             <IdentityCard formValues={formValues} activeField={activeField} />
           </div>
         </div>
-        {/* <form action="" className=" bg-white shadow-md rounded px-8 py-8 pt-8">
-          <div className="px-4 pb-4">
-            <Label htmlFor="email">EMAIL ADDRESS</Label>
-            <TextInput
-              id="email"
-              name="email"
-              value={email}
-              type="email"
-              placeholder="Johnbull@example.com"
-              onChange={handleEmailChange}
-            />
-          </div>
-          <div className="px-4 pb-4">
-            <Label htmlFor="password">PASSWORD</Label>
-            <TextInput
-              id="password"
-              name="password"
-              value={password}
-              type="password"
-              placeholder="Enter your password"
-              onChange={handlePasswordChange}
-            />
-          </div>
-          <div>
-            <button
-              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-              type="button"
-            >
-              Sign In
-            </button>
-          </div>
-        </form> */}
+        {/* <form action="" className=" bg-white shadow-md rounded px-8 py-8 pt-8"></form> */}
       </GridContainer>
 
       <PageFooter />

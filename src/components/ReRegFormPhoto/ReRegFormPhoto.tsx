@@ -35,7 +35,7 @@ interface Props {
   onUploadChange: ChangeEventHandler;
 }
 
-const ReRegFormCardPhoto: FC<Props> = ({ formValues, onUploadChange }) => {
+const ReRegFormPhoto: FC<Props> = ({ formValues, onUploadChange }) => {
   const { photoBase64Image } = formValues;
 
   const renderGuide = (type: keyof typeof guidePhotos) => {
@@ -99,4 +99,4 @@ const ReRegFormCardPhoto: FC<Props> = ({ formValues, onUploadChange }) => {
   );
 };
 
-export default ReRegFormCardPhoto;
+export default ReRegFormPhoto;

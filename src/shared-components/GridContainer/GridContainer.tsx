@@ -8,7 +8,9 @@ interface Props {
 
 const GridContainer: FC<Props> = ({ className, children }) => {
   return (
-    <div className={classnames(`container mx-auto`, className)}>{children}</div>
+    <div className={classnames(`container mx-auto px-4`, className)}>
+      {children}
+    </div>
   );
 };
 

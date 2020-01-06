@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 
-import GridContainer from "../../shared-components/GridContainer";
 import { DUMMY_LINK } from "../../routes/index";
+import GridContainer from "../../shared-components/GridContainer";
 import styles from "./style.module.scss";
 
 const links = {
@@ -70,9 +70,9 @@ const PageFooter: FC<{}> = () => {
   };
 
   return (
-    <footer className="bg-blue-900 text-white p-4 mt-20">
+    <footer className="bg-blue-900 text-white py-5 mt-20">
       <GridContainer>
-        <h2 className="font-sans text-white my-5">
+        <h2 className="font-sans text-white mb-5">
           Re-registration of NRIC concept
         </h2>
 

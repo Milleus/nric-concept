@@ -1,4 +1,4 @@
-import React, { FC, ChangeEventHandler } from "react";
+import React, { FC, ChangeEventHandler, FocusEventHandler } from "react";
 
 import { FormValues } from "../../pages/ReRegFormPage";
 import Card from "../../shared-components/Card";
@@ -11,12 +11,16 @@ import Select, { SelectOption } from "../../shared-components/Select/Select";
 interface Props {
   formValues: FormValues;
   onChange: ChangeEventHandler;
+  onFocus: FocusEventHandler;
+  onBlur: FocusEventHandler;
   religionOptions: SelectOption[];
 }
 
-const ReRegFormCardOther: FC<Props> = ({
+const ReRegFormOther: FC<Props> = ({
   formValues,
   onChange,
+  onFocus,
+  onBlur,
   religionOptions
 }) => {
   const { gender, race, religion } = formValues;
@@ -44,6 +48,8 @@ const ReRegFormCardOther: FC<Props> = ({
             value={religion}
             options={religionOptions}
             onChange={onChange}
+            onFocus={onFocus}
+            onBlur={onBlur}
           />
         </FormCol>
       </FormRow>
@@ -51,4 +57,4 @@ const ReRegFormCardOther: FC<Props> = ({
   );
 };
 
-export default ReRegFormCardOther;
+export default ReRegFormOther;

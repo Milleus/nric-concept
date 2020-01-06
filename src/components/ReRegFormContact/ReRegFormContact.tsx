@@ -1,4 +1,4 @@
-import React, { FC, ChangeEventHandler } from "react";
+import React, { FC, ChangeEventHandler, FocusEventHandler } from "react";
 
 import { FormValues } from "../../pages/ReRegFormPage";
 import Card from "../../shared-components/Card";
@@ -10,9 +10,16 @@ import TextInput from "../../shared-components/TextInput";
 interface Props {
   formValues: FormValues;
   onChange: ChangeEventHandler;
+  onFocus: FocusEventHandler;
+  onBlur: FocusEventHandler;
 }
 
-const ReRegFormCardContact: FC<Props> = ({ formValues, onChange }) => {
+const ReRegFormContact: FC<Props> = ({
+  formValues,
+  onChange,
+  onFocus,
+  onBlur
+}) => {
   const { emailAddress, contactNumber1, contactNumber2 } = formValues;
 
   return (
@@ -29,6 +36,8 @@ const ReRegFormCardContact: FC<Props> = ({ formValues, onChange }) => {
             value={emailAddress}
             type="email"
             onChange={onChange}
+            onFocus={onFocus}
+            onBlur={onBlur}
           />
         </FormCol>
       </FormRow>
@@ -40,8 +49,11 @@ const ReRegFormCardContact: FC<Props> = ({ formValues, onChange }) => {
             id="contactNumber1"
             name="contactNumber1"
             value={contactNumber1}
+            type="tel"
             placeholder="Please indicate"
             onChange={onChange}
+            onFocus={onFocus}
+            onBlur={onBlur}
           />
         </FormCol>
 
@@ -53,8 +65,12 @@ const ReRegFormCardContact: FC<Props> = ({ formValues, onChange }) => {
             id="contactNumber2"
             name="contactNumber2"
             value={contactNumber2}
+            type="tel"
             placeholder="Please indicate"
+            autoComplete="disable-autofill"
             onChange={onChange}
+            onFocus={onFocus}
+            onBlur={onBlur}
           />
         </FormCol>
       </FormRow>
@@ -62,4 +78,4 @@ const ReRegFormCardContact: FC<Props> = ({ formValues, onChange }) => {
   );
 };
 
-export default ReRegFormCardContact;
+export default ReRegFormContact;

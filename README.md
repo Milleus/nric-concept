@@ -1,6 +1,6 @@
 # nric-concept
 
-A concept of re-registering National Registration Identity Card (NRIC) for Singapore.
+A concept of re-registration of the National Registration Identity Card (NRIC) for Singapore citizens.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

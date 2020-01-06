@@ -16,7 +16,7 @@ interface Props {
   onBlur: FocusEventHandler;
 }
 
-const ReRegFormCardName: FC<Props> = ({
+const ReRegFormName: FC<Props> = ({
   formValues,
   onChange,
   onFocus,
@@ -156,4 +156,4 @@ const ReRegFormCardName: FC<Props> = ({
   );
 };
 
-export default ReRegFormCardName;
+export default ReRegFormName;
