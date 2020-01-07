@@ -14,7 +14,7 @@ interface Props {
 }
 
 const IdentityCardPreview: FC<Props> = ({ formValues, activeField }) => {
-  const [isFlipped, setIsFlipped] = useState<boolean>(false);
+  const [isScrollFlip, setIsScrollFlip] = useState<boolean>(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -24,11 +24,16 @@ const IdentityCardPreview: FC<Props> = ({ formValues, activeField }) => {
       const currentScroll = window.pageYOffset;
       const anchorOffset = 200;
 
-      if (flipAnchor && cardFront && cardBack) {
+      if (
+        activeField === ActiveField.NONE &&
+        flipAnchor &&
+        cardFront &&
+        cardBack
+      ) {
         const flipFlag =
           currentScroll + anchorOffset > flipAnchor.offsetTop ? true : false;
 
-        setIsFlipped(flipFlag);
+        setIsScrollFlip(flipFlag);
       }
     };
 
@@ -38,11 +43,11 @@ const IdentityCardPreview: FC<Props> = ({ formValues, activeField }) => {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, [activeField]);
 
   const cardContainerClass = cx({
     cardContainer: true,
-    scrollFlip: activeField === ActiveField.NONE && isFlipped,
+    scrollFlip: isScrollFlip,
     activePhoto: activeField === ActiveField.PHOTO,
     activeName: activeField === ActiveField.NAME,
     activeAddress: activeField === ActiveField.ADDRESS
