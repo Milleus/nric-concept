@@ -23,7 +23,7 @@ const ReRegFormAddress: FC<Props> = ({
   const { postalCode, blockNo, streetName, floorNo, unitNo } = formValues;
 
   return (
-    <Card title="Address">
+    <Card id="flipAnchor" title="Address">
       <FormRow>
         <FormCol className="sm:w-1/4">
           <FormLabel htmlFor="postalCode">Postal code</FormLabel>
@@ -93,5 +93,7 @@ const ReRegFormAddress: FC<Props> = ({
     </Card>
   );
 };
+
+ReRegFormAddress.displayName = "ReRegFormAddress";
 
 export default ReRegFormAddress;

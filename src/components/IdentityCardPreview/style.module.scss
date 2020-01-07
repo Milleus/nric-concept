@@ -1,5 +1,6 @@
 .identityCardPreview {
   position: sticky;
+  top: 40px;
   width: 430px;
 
   .cardContainer {
@@ -48,32 +49,22 @@
       pointer-events: none;
       transition: all 0.8s cubic-bezier(0.71, 0.03, 0.56, 0.85),
         opacity 0.4s cubic-bezier(0.71, 0.03, 0.56, 0.85);
+      z-index: 1;
     }
 
-    // code below handles all rotation and helper highlight
-    &.activeNone {
+    &.scrollFlip {
       .card {
         &.front {
-          transform: rotateY(0);
+          transform: rotateY(180deg);
         }
 
         &.back {
-          transform: rotateY(180deg);
+          transform: rotateY(0);
         }
       }
     }
 
     &.activePhoto {
-      .card {
-        &.front {
-          transform: rotateY(0);
-        }
-
-        &.back {
-          transform: rotateY(180deg);
-        }
-      }
-
       .helper {
         height: 200px;
         width: 112px;
@@ -83,16 +74,6 @@
     }
 
     &.activeName {
-      .card {
-        &.front {
-          transform: rotateY(0);
-        }
-
-        &.back {
-          transform: rotateY(180deg);
-        }
-      }
-
       .helper {
         height: 88px;
         width: 304px;

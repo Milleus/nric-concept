@@ -1,5 +1,5 @@
 import classnames from "classnames/bind";
-import React, { FC, useEffect, useRef } from "react";
+import React, { FC, useEffect, useState } from "react";
 
 import { FormValues, ActiveField } from "../../pages/ReRegFormPage";
 import IdentityCardBack from "./IdentityCardBack";
@@ -14,28 +14,21 @@ interface Props {
 }
 
 const IdentityCardPreview: FC<Props> = ({ formValues, activeField }) => {
-  const previewRef = useRef<HTMLDivElement>(null);
+  const [isFlipped, setIsFlipped] = useState<boolean>(false);
 
   useEffect(() => {
-    const stickyOffet = 40;
-    let elementOffsetTop = 0;
-
     const handleScroll = () => {
-      const { current } = previewRef;
+      const flipAnchor = document.getElementById("flipAnchor");
+      const cardFront = document.getElementById("cardFront");
+      const cardBack = document.getElementById("cardBack");
+      const currentScroll = window.pageYOffset;
+      const anchorOffset = 200;
 
-      if (current) {
-        if (elementOffsetTop === 0) {
-          elementOffsetTop = current.offsetTop;
-        }
+      if (flipAnchor && cardFront && cardBack) {
+        const flipFlag =
+          currentScroll + anchorOffset > flipAnchor.offsetTop ? true : false;
 
-        const currentScroll = window.pageYOffset;
-
-        if (currentScroll + stickyOffet > elementOffsetTop) {
-          current.classList.add("sticky");
-          current.style.top = `${stickyOffet}px`;
-        } else {
-          current.classList.remove("sticky");
-        }
+        setIsFlipped(flipFlag);
       }
     };
 
@@ -49,14 +42,14 @@ const IdentityCardPreview: FC<Props> = ({ formValues, activeField }) => {
 
   const cardContainerClass = cx({
     cardContainer: true,
-    activeNone: activeField === ActiveField.NONE,
+    scrollFlip: activeField === ActiveField.NONE && isFlipped,
     activePhoto: activeField === ActiveField.PHOTO,
     activeName: activeField === ActiveField.NAME,
     activeAddress: activeField === ActiveField.ADDRESS
   });
 
   return (
-    <div ref={previewRef} className={styles.identityCardPreview}>
+    <div className={styles.identityCardPreview}>
       <h2 className="mb-2">Preview</h2>
 
       <div className={cardContainerClass}>

@@ -33,6 +33,7 @@ const IdentityCardFront: FC<Props> = ({ formValues }) => {
 
   return (
     <div
+      id="cardFront"
       className={`flex flex-col p-4 bg-pink-200 rounded-lg ${styles.card} ${styles.front}`}
     >
       <div className="bg-gray-400 px-4 mb-2 -mx-4">
