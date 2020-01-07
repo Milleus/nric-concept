@@ -158,7 +158,6 @@ const ReRegFormPage: FC<{}> = () => {
       case "unitNo":
         setActiveField(ActiveField.ADDRESS);
         break;
-      case "religion":
       default:
         setActiveField(ActiveField.NONE);
     }
