@@ -21,10 +21,7 @@ const IdentityCardBack: FC<Props> = ({ formValues }) => {
   } = formValues;
 
   return (
-    <div
-      id="cardBack"
-      className={`flex flex-col p-4 bg-pink-200 rounded-lg ${styles.card} ${styles.back}`}
-    >
+    <div id="cardBack" className={`${styles.card} ${styles.back}`}>
       <img src={barCode} alt="barcode" className="w-full mb-2" />
 
       <div className="w-full h-full">

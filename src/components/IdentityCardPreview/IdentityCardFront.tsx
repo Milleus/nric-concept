@@ -22,7 +22,7 @@ const IdentityCardFront: FC<Props> = ({ formValues }) => {
     countryOfBirth
   } = formValues;
 
-  const renderMinorLabelField = (label: string, value: string) => {
+  const renderField = (label: string, value: string) => {
     return (
       <>
         <p className="text-gray-800 text-xs font-semibold mt-1">{label}</p>
@@ -32,10 +32,7 @@ const IdentityCardFront: FC<Props> = ({ formValues }) => {
   };
 
   return (
-    <div
-      id="cardFront"
-      className={`flex flex-col p-4 bg-pink-200 rounded-lg ${styles.card} ${styles.front}`}
-    >
+    <div id="cardFront" className={`${styles.card} ${styles.front}`}>
       <div className="bg-gray-400 px-4 mb-2 -mx-4">
         <p className="font-semibold text-sm">
           IDENTITY CARD NO. <span className="text-base">{nricNumber}</span>
@@ -73,17 +70,17 @@ const IdentityCardFront: FC<Props> = ({ formValues }) => {
             )}
           </label>
 
-          {renderMinorLabelField("Race", race)}
+          {renderField("Race", race)}
 
           <div className="flex">
             <div className="w-1/2 mr-3">
-              {renderMinorLabelField("Date of birth", dateOfBirth)}
+              {renderField("Date of birth", dateOfBirth)}
             </div>
 
-            <div className="w-1/2">{renderMinorLabelField("Sex", gender)}</div>
+            <div className="w-1/2">{renderField("Sex", gender)}</div>
           </div>
 
-          {renderMinorLabelField("Country of birth", countryOfBirth)}
+          {renderField("Country of birth", countryOfBirth)}
         </div>
       </div>
     </div>
