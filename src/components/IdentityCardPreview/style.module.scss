@@ -1,0 +1,123 @@
+.identityCardPreview {
+  position: sticky;
+  width: 430px;
+
+  .cardContainer {
+    width: 430px;
+    height: 260px;
+    position: relative;
+    overflow: hidden;
+
+    .card {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      transition: all 0.8s cubic-bezier(0.71, 0.03, 0.56, 0.85);
+      backface-visibility: hidden;
+
+      &.front {
+        transform: rotateY(0);
+
+        .previewLarge {
+          filter: grayscale(1);
+        }
+
+        .previewSmall {
+          max-width: 40px;
+          height: 50px;
+          filter: grayscale(1);
+        }
+      }
+
+      &.back {
+        transform: rotateY(180deg);
+
+        .thumbprint {
+          max-width: 90px;
+        }
+      }
+    }
+
+    .helper {
+      border: 2px solid #2a4365;
+      border-radius: 0.5rem;
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.8s cubic-bezier(0.71, 0.03, 0.56, 0.85),
+        opacity 0.4s cubic-bezier(0.71, 0.03, 0.56, 0.85);
+    }
+
+    // code below handles all rotation and helper highlight
+    &.activeNone {
+      .card {
+        &.front {
+          transform: rotateY(0);
+        }
+
+        &.back {
+          transform: rotateY(180deg);
+        }
+      }
+    }
+
+    &.activePhoto {
+      .card {
+        &.front {
+          transform: rotateY(0);
+        }
+
+        &.back {
+          transform: rotateY(180deg);
+        }
+      }
+
+      .helper {
+        height: 200px;
+        width: 112px;
+        opacity: 1;
+        transform: translateX(8px) translateY(42px);
+      }
+    }
+
+    &.activeName {
+      .card {
+        &.front {
+          transform: rotateY(0);
+        }
+
+        &.back {
+          transform: rotateY(180deg);
+        }
+      }
+
+      .helper {
+        height: 88px;
+        width: 304px;
+        opacity: 1;
+        transform: translateX(120px) translateY(44px);
+      }
+    }
+
+    &.activeAddress {
+      .card {
+        &.front {
+          transform: rotateY(180deg);
+        }
+
+        &.back {
+          transform: rotateY(0);
+        }
+      }
+
+      .helper {
+        height: 80px;
+        width: 414px;
+        opacity: 1;
+        transform: translateX(8px) translateY(172px);
+      }
+    }
+  }
+}

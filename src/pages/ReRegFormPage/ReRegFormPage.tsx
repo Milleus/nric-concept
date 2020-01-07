@@ -1,7 +1,7 @@
 import React, { FC, useState, ChangeEvent } from "react";
 
 import GridContainer from "../../shared-components/GridContainer";
-import IdentityCard from "../../components/IdentityCard";
+import IdentityCardPreview from "../../components/IdentityCardPreview";
 import PageFooter from "../../components/PageFooter/PageFooter";
 import PageHeader from "../../components/PageHeader";
 import PageTitle from "../../components/PageTitle";
@@ -217,7 +217,10 @@ const ReRegFormPage: FC<{}> = () => {
           </div>
 
           <div className="hidden w-auto lg:block px-4">
-            <IdentityCard formValues={formValues} activeField={activeField} />
+            <IdentityCardPreview
+              formValues={formValues}
+              activeField={activeField}
+            />
           </div>
         </div>
         {/* <form action="" className=" bg-white shadow-md rounded px-8 py-8 pt-8"></form> */}
