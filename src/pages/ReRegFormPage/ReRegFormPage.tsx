@@ -1,5 +1,6 @@
 import React, { FC, useState, ChangeEvent } from "react";
 
+import Button, { ButtonAppearance } from "../../shared-components/Button";
 import GridContainer from "../../shared-components/GridContainer";
 import IdentityCardPreview from "../../components/IdentityCardPreview";
 import PageFooter from "../../components/PageFooter/PageFooter";
@@ -176,7 +177,7 @@ const ReRegFormPage: FC<{}> = () => {
       <GridContainer>
         <PageTitle
           title="Update IC information"
-          subtitle={`Re-register IC No. ${nricNumber}`}
+          subtitle={`Re-registration of IC No. ${nricNumber}`}
         />
 
         <div className="flex -mx-4">
@@ -223,7 +224,15 @@ const ReRegFormPage: FC<{}> = () => {
             />
           </div>
         </div>
-        {/* <form action="" className=" bg-white shadow-md rounded px-8 py-8 pt-8"></form> */}
+
+        <div className="mt-4">
+          <Button appearance={ButtonAppearance.SECONDARY} className="w-40 mr-4">
+            Back
+          </Button>
+          <Button appearance={ButtonAppearance.PRIMARY} className="w-40">
+            Next
+          </Button>
+        </div>
       </GridContainer>
 
       <PageFooter />
