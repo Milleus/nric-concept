@@ -3723,6 +3723,10 @@ a:focus {
   font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
+.font-lato {
+  font-family: Lato;
+}
+
 .font-hairline {
   font-weight: 100;
 }
@@ -14482,6 +14486,10 @@ a:focus {
 
   .sm\:font-mono {
     font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  }
+
+  .sm\:font-lato {
+    font-family: Lato;
   }
 
   .sm\:font-hairline {
@@ -25246,6 +25254,10 @@ a:focus {
     font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   }
 
+  .md\:font-lato {
+    font-family: Lato;
+  }
+
   .md\:font-hairline {
     font-weight: 100;
   }
@@ -36008,6 +36020,10 @@ a:focus {
     font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   }
 
+  .lg\:font-lato {
+    font-family: Lato;
+  }
+
   .lg\:font-hairline {
     font-weight: 100;
   }
@@ -46768,6 +46784,10 @@ a:focus {
 
   .xl\:font-mono {
     font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  }
+
+  .xl\:font-lato {
+    font-family: Lato;
   }
 
   .xl\:font-hairline {
